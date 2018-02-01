@@ -1,6 +1,7 @@
 /**
  *
- * @param {*array} randomGreetings
+ * @param {*collection} e Command executer
+ * @param {*colletion} b  Banned user
  */
 exports.ban = (e, b) => {
   let messages = [
@@ -11,6 +12,11 @@ exports.ban = (e, b) => {
   return randomize(messages)
 }
 
+/**
+ *
+ * @param {*collection} u Targeted user
+ * @param {*collection} a Name of the action.
+ */
 exports.botCant = (u, a) => {
   let messages = [
     `${u} has more power then me! I can't ${a} him`,
