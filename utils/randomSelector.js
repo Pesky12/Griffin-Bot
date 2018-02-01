@@ -37,12 +37,6 @@ exports.botCant = (u, a) => {
   return randomize(messages)
 }
 
-function randomize (randomGreetings) {
-  let randomNumber = Math.floor(Math.random() * randomGreetings.length)
-  let greetings = randomGreetings[randomNumber]
-  return greetings
-}
-
 exports.kick = (e, b) => {
   let messages = [
     `${b}, you know the rules, and so I!`,
@@ -65,7 +59,12 @@ exports.kick = (e, b) => {
     
   ]
   return randomise(messages)
-    
-    
-    
-    
+}
+
+
+function randomize (randomGreetings) {
+  let randomNumber = Math.floor(Math.random() * randomGreetings.length)
+  let greetings = randomGreetings[randomNumber]
+  return greetings
+}
+
