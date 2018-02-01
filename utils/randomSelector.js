@@ -22,7 +22,7 @@ exports.ban = (e, b) => {
     `We no longer carry ${b} in our store, sorry for any inconvenience.`,
     `${b} has been destroyed by hippie powers.`,
     `File name ${b} has be deleted from this hard drive.`
-    
+
   ]
   return randomize(messages)
 }
@@ -43,6 +43,11 @@ exports.botCant = (u, a) => {
   return randomize(messages)
 }
 
+/**
+ *
+ * @param {*collection} u Targeted user
+ * @param {*collection} a Name of the action.
+ */
 exports.kick = (e, b) => {
   let messages = [
     `${b}, you know the rules, and so I!`,
@@ -62,15 +67,13 @@ exports.kick = (e, b) => {
     `We jettisoned ${b} out of the airlock for being rather rude and obtuse.`,
     `${b} miss me with that weak shit dawg.`,
     `${b} has been kicked because "My name Jeff" gets funnier after the 100th time.`
-    
   ]
+
   return randomise(messages)
 }
-
 
 function randomize (randomGreetings) {
   let randomNumber = Math.floor(Math.random() * randomGreetings.length)
   let greetings = randomGreetings[randomNumber]
   return greetings
 }
-
