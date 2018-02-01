@@ -16,3 +16,5 @@ exports.modActionEmbed = (actionName, executer, target, reason) => {
     .setTimestamp(new Date())
   return embed
 }
+
+exports
