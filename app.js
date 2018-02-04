@@ -11,7 +11,7 @@ if (process.env.RUN_TYPE !== 'production') {
 client.commands = new Discord.Collection()
 client.events = new Discord.Collection()
 
-function Loader (loadFolder, collection, requiring) {
+function loader (loadFolder, collection, requiring) {
   fs.readdir(loadFolder, (err, files) => {
     if (err) return console.error(err)
     let filesjs = files.filter(f => f.split('.').pop() === 'js')
@@ -34,8 +34,8 @@ function Loader (loadFolder, collection, requiring) {
   })
 }
 
-Loader('./commands/', client.commands)
-Loader('./events/', client.events, true)
+loader('./commands/', client.commands)
+loader('./events/', client.events, true)
 
 client.on('message', (message) => {
   let prefix = config.prefix
