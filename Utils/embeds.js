@@ -17,7 +17,7 @@ exports.modActionEmbed = (actionName, executer, target, reason) => {
   return embed
 }
 
-exports.infoEmbed = (title, desc, color) {
+exports.infoEmbed = (title, desc, color) => {
   let embed = new Discord.RichEmbed()
   .setTitle(title)
   .setDescription(desc)
