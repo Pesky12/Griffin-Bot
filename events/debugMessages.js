@@ -1,25 +1,18 @@
-const Discord = require('discord.js');
+const embeds = require('../Utils/embeds')
 
-exports.run = (client, config) =>{
+exports.run = (client, config) => {
   client.on('warn', (warn) => {
-    let embed = new Discord.RichEmbed()
-      .setTitle('DISCORD API WARN')
-      .setDescription('Log', warn)
-      .setColor('#ff7700')
-      .setFooter('warn')
-      .setTimestamp(new Date());
-    client.channels.get ('331072865707360258').send({ embed });
-  });
+    if (!client.channels.exists(process.env.LOG_CHANNEL)) return
+    client.channels.get(process.env.LOG_CHANNEL).send({ embed: embeds.infoEmbed('Discord Warn', warn) })
+  })
 
   exports.help = {
-    name:"DebugMessage",
-    description: "Spam machine"
+    name: 'DebugMessage',
+    description: 'Spam machine'
   }
+}
 
-
-  };
-
-  exports.settings = {
-        enabled: false,     
-        public: false,
-  };
+exports.settings = {
+  enabled: true,
+  public: false
+}
