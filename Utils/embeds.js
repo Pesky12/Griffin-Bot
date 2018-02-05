@@ -42,3 +42,15 @@ exports.smallEmbedThumbnail = (title, desc, thumbnail) => {
   .setThumbnail(thumbnail)
   return embed
 }
+
+exports.currencyEmbed = (response) => {
+  let embed = new Discord.RichEmbed()
+    .setAuthor(`${response['FROMSYMBOL']} => ${response['TOSYMBOL']}`)
+    .addField('Price (USD)', response['PRICE'])
+    .addField('Today\'s high', response['HIGHDAY'], true)
+    .addField('Today\'s low', response['LOWDAY'], true)
+    .setColor('#FFDF00')
+    .setFooter('cryptocompare.com', 'https://freeter.io/embedding-web-apps/cryptocurrency/cryptocompare.png')
+    .setTimestamp(new Date())
+  return embed
+}
