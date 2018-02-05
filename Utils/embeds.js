@@ -1,10 +1,9 @@
 const Discord = require('discord.js')
 
 /**
- * 
- * @param {String} actionName 
- * @param {Collection} executer 
- * @param {Collection} target 
+ * @param {String} actionName
+ * @param {Collection} executer
+ * @param {Collection} target
  * @param {String} reason
  */
 exports.modActionEmbed = (actionName, executer, target, reason) => {
@@ -22,5 +21,16 @@ exports.infoEmbed = (title, desc, color) => {
   .setTitle(title)
   .setDescription(desc)
   .setColor(color)
+  return embed
+}
+
+exports.booruEmbed = (booruImage) => {
+  let embed = new Discord.RichEmbed()
+  .setTitle('Booru search')
+  .addField('Artist', booruImage.artist.join(', '))
+  .addField('Score', booruImage.score, true)
+  .addField('Rating', booruImage.rating, true)
+  .addField('Description', booruImage.description || 'None', true)
+  .setImage(booruImage.file_url)
   return embed
 }

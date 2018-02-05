@@ -1,67 +1,17 @@
-const Discord = require('discord.js')
-exports.run = async(client, message, args) => {
-  let booru
-  if (message.channel.nsfw) {
-    booru = require('booru')
-  } else {
-    booru = require('sfwbooru')
-  }
-  let site = args[0]
-  let tags = args.slice(1)
-  if (!args[0] || !args[1]) {
-    let embed = new Discord.RichEmbed()
-      .setTitle('Please specify a booru and tags!')
-      .setDescription('Use |~help booru| for extended info about tags and sites.')
-      .setColor('#42b0f4')
-      .setFooter('Invalid Input', client.user.avatarURL)
-    message.channel.send({embed})
-    return
-  }
+const embeds = require('../Utils/embeds')
 
-  await booru.search(site, tags, {limit: 1, random: true})
-    .catch(err => {
-      console.log(err)
-      if (err.message.startsWith('Site not supported')) {
-        let embed = new Discord.RichEmbed()
-          .setTitle(`Site is not supported here!!`)
-          .setColor('#c83fff')
-        message.channel.send({embed})
-      }
-    })
-    .then(booru.commonfy)
-    .then(images => {
-      for (let image of images) {
-        message.channel.startTyping()
-        console.log(image.common.rating)
-        let embed = new Discord.RichEmbed()
-            .addField('Rating:', `${image.common.rating}`, true)
-            .addField('Score:', `${image.common.score}`, true)
-            .setImage(image.common.file_url)
-            .setColor('#c83fff')
-            .setFooter(`${site} | Tags: ${args.slice(1).join(' ')}`)
-        message.channel.send({embed})
-        message.channel.stopTyping()
-      }
-    })
-    .catch(err => {
-      console.log(err)
-      if (err.name === 'booruError') {
-        console.log('Booru err:' + err)
-        if (err.message.startsWith('Site not ')) {
-          let embed = new Discord.RichEmbed()
-            .setTitle(`${err.message}`)
-            .setColor('#c83fff')
-          message.channel.send({embed})
-          return
-        }
-        if (err.message.startsWith('You didn\'t give ')) {
-          let embed = new Discord.RichEmbed()
-            .setTitle(`I can find nothing with these tags: *${tags.join(' ')}*`)
-            .setColor('#c83fff')
-          message.channel.send({embed})
-        }
-      }
-    })
+exports.run = async(client, message, args) => {
+  let booru = require('sfwbooru')
+  if (message.channel.nsfw) booru = require('booru')
+  let booruName = args[0]
+  let tags = args.slice(1)
+  booru.search(booruName, tags, { limit: 1, random: true })
+  .catch(err => {
+    if (err.message === 'Site not supported') message.channel.send(embeds.infoEmbed(err.message, 'Use ~help booru to see supported boorus'))
+    else message.channel.send(embeds.infoEmbed('Problem searching booru', 'Try checking your tags or try later'))
+  })
+  .then(booru.commonfy)
+  .then(image => { message.channel.send(embeds.booruEmbed(image[0])) })
 }
 
 exports.settings = {
