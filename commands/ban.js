@@ -8,8 +8,6 @@ exports.run = async (client, message, args) => {
 
   usersToBan.map(u => {
     if (!message.guild.members.find('id', u.id).bannable) return message.channel.send(randomMessages.botCant(u, 'ban'))
-    let em = embeds.modActionEmbed('Ban', message.author, u, reason)
-    if (message.guild.channels.find('name', 'mod-log')) message.guild.channels.find('name', 'mod-log').send({embed: em})
     message.channel.send(randomMessages.ban(message.author, u))
     message.guild.ban(u, reason)
   })
