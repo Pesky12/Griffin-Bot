@@ -22,13 +22,10 @@ function loader (loadFolder, collection, requiring) {
     console.log(`\n──────────────────────────────────────\n>I am trying to load ${filesjs.length} files from ${loadFolder}, hold up!`)
     filesjs.forEach((f, i) => {
       let file = require(`${loadFolder}${f}`)
-      if (file.settings.enabled === false) {
-        console.log(`${i + 1}: ${f} is disabled and will not be loaded`)
-        return
-      }
-      if (requiring === true) file.run(client, config)
+      if (file.settings.enabled === false) return console.log(`${i + 1}: ${f} is disabled and will not be loaded`)
+      if (requiring) file.run(client, config)
       console.log(`${i + 1}: ${f} ready to fly!`)
-      if (collection !== false) collection.set(file.help.name, file)
+      collection.set(file.help.name, file)
     })
     console.log('──────────────────────────────────────')
   })
@@ -53,4 +50,4 @@ client.on('message', (message) => {
   }
 })
 
-client.login(config.token)
+client.login(process.env.DISCORD_TOKEN)
