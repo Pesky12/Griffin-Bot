@@ -1,4 +1,6 @@
-const Discord = require('discord.js');
+const randomMessages = require('../Utils/randomSelector')
+const embeds = require('../Utils/embeds')
+
 exports.run = async (client, message, args) => {
   let usersToBan = message.mentions.users
   if (usersToBan.size < 1) return message.channel.send('Can you mention them ?')
@@ -6,7 +8,7 @@ exports.run = async (client, message, args) => {
 
   usersToBan.map(u => {
     if (!message.guild.members.find('id', u.id).bannable) return message.channel.send(randomMessages.botCant(u, 'ban'))
-    let em = modLogEmbed.modActionEmbed('Ban', message.author, u, reason)
+    let em = embeds.modActionEmbed('Ban', message.author, u, reason)
     if (message.guild.channels.find('name', 'mod-log')) message.guild.channels.find('name', 'mod-log').send({embed: em})
     message.channel.send(randomMessages.ban(message.author, u))
     message.guild.ban(u, reason)
@@ -14,16 +16,16 @@ exports.run = async (client, message, args) => {
 }
 
 exports.settings = {
-  enabled: true,     
+  enabled: true,
   public: true,
   PM: false,
   owneronly: false,
-  permissionsRequired: ['KICK_MEMBERS'],
-};
+  permissionsRequired: ['KICK_MEMBERS']
+}
 
 exports.help = {
   name: 'kick',
   description: '👞 Kicks the mentioned user.',
-  longDescription: "",
+  longDescription: '',
   usage: 'kick [mention/userID] [reason]'
-};
+}
