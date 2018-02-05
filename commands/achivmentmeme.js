@@ -26,9 +26,7 @@ exports.run = async(client, message, args) => {
       }
       )
     })
-    if (err) {
-      throw err
-    };
+    if (err) throw err
   })
 }
 
