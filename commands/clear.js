@@ -1,20 +1,9 @@
-const Discord = require('discord.js')
-
 exports.run = async(client, message, args) => {
-  let number = args.join(' ')
-  if (number <= 1) return message.channel.send('I need more messages to delete!')
-  let messagecount = parseInt(number)
+  let messagecount = parseInt(args[0])
+  if (messagecount <= 1 || messagecount > 100) return message.channel.send('I can\'t delete this many messages!')
   await message.delete()
-  await message.channel.fetchMessages({
-    limit: messagecount
-  }).then(messages => {
-    message.channel.bulkDelete(messages)
-  })
-
-  let embedDelete = new Discord.RichEmbed()
-    .setAuthor(`Deleted ${number} messages`)
-    .setColor(0x00AE86)
-  await message.channel.send({embed: embedDelete}).then(botmsg => botmsg.delete(5000))
+  await message.channel.fetchMessages({ limit: messagecount }).then(messages => { message.channel.bulkDelete(messages) })
+  await message.channel.send(`:ok_hand: Deleted ${messagecount} messages`).then(botmsg => botmsg.delete(5000))
 }
 
 exports.settings = {
