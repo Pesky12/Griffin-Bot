@@ -34,3 +34,11 @@ exports.booruEmbed = (booruImage) => {
   .setImage(booruImage.file_url)
   return embed
 }
+
+exports.smallEmbedThumbnail = (title, desc, thumbnail) => {
+  let embed = new Discord.RichEmbed()
+  .setTitle(title)
+  .setDescription(desc)
+  .setThumbnail(thumbnail)
+  return embed
+}
