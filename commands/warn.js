@@ -3,12 +3,14 @@ const random = require('../Utils/randomSelector')
 exports.run = (client, message, args) => {
   let warnedUsers = message.mentions.users
   let reason = args.slice(warnedUsers.array().length).join(' ') || 'There is none! ¯\\_(ツ)_/¯'
+  let messageArray = []
   warnedUsers.map(u => {
     let warnEmbed = embeds.modActionEmbed('Warn', message.author, u, reason)
     if (message.guild.channels.exists('name', 'mod-log')) message.guild.channels.find('name', 'mod-log').send({embed: warnEmbed})
-    u.send({ embeds: warnEmbed })
+    u.send({ embed: warnEmbed })
+    messageArray.push(random.warn(u))
   })
-  message.channel.send(random.warn(warnedUsers.map(u => { return u })))
+  message.channel.send(messageArray)
 }
 
 exports.settings = {
