@@ -1,19 +1,18 @@
-exports.run = (client, message, args) =>{
-  message.channel.send('**H E L L O  I  A M  G R I F F I N**');
-  return;
-};
+exports.run = (client, message, args) => {
+  message.channel.send('**H E L L O  I  A M  A  B I R D**')
+}
 
 exports.settings = {
-  enabled: false,     
-  public: true,
+  enabled: true,
+  public: false,
   PM: true,
   owneronly: false,
-  permissionsRequired: [],
-};
+  permissionsRequired: []
+}
 
 exports.help = {
   name: 'hello',
   description: '👋 Hallo',
-  longDescription: "",
+  longDescription: '',
   usage: 'hello'
-};
+}
