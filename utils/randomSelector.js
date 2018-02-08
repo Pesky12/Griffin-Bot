@@ -30,6 +30,18 @@ exports.ban = (e, b) => {
 /**
  *
  * @param {*collection} u Targeted user
+ */
+exports.warn = (u) => {
+  let messages = [
+    `${u} has been warned`
+
+  ]
+  return randomize(messages)
+}
+
+/**
+ *
+ * @param {*collection} u Targeted user
  * @param {*collection} a Name of the action.
  */
 exports.botCant = (u, a) => {
