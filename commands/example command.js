@@ -1,18 +1,18 @@
-exports.run = (client, message, args,config) => {
+exports.run = (client, message, args, config) => {
 
-};
+}
 
 exports.settings = {
-  enabled: false,     
+  enabled: false,
   public: false,
   PM: false,
   owneronly: false,
-  permissionsRequired: [],
-};
+  permissionsRequired: []
+}
 
 exports.help = {
   name: '',
   description: '',
-  longDescription: "",
+  longDescription: '',
   usage: ''
-};
+}
