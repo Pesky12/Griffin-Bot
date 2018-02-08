@@ -81,7 +81,7 @@ exports.kick = (e, b) => {
     `${b} has been kicked because "My name Jeff" gets funnier after the 100th time.`
   ]
 
-  return randomise(messages)
+  return randomize(messages)
 }
 
 function randomize (randomGreetings) {
