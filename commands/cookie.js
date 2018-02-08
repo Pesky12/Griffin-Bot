@@ -1,37 +1,29 @@
-const Discord = require('discord.js');
-exports.run = (client, message) =>{
-  let giveCookieto = message.mentions.users.first();
-  if(giveCookieto == message.author) return message.channel.send('No.');
-
-  if (message.mentions.users.size < 1) { 
-    let embed = new Discord.RichEmbed()
-      .setTitle('You haven\'t said who\'s sandvich it is so i ate it.')
-      .setColor('#683e0d')
-      .setThumbnail('http://www.markrice.com/birds/2005images/20051211_0031%20PiperHubble%20Eating%20Sandwich.JPG');
-
-    message.channel.send({embed});
-    return;
+exports.run = (client, message, args) => {
+  let recievers = message.mentions.users
+  if (recievers.lenght < 1) {
+    message.channel.send('Who is the lucky one i should send the :cookie: to?')
   }
 
-  let embed = new Discord.RichEmbed()
-    .setAuthor(message.author.username, message.author.displayAvatarURL)
-    .setTitle(`Sent you a sandvich ${giveCookieto.username}!`)
-    .setColor('#683e0d')
-    .setThumbnail('https://wiki.teamfortress.com/w/images/thumb/9/95/Sandvich.png/250px-Sandvich.png?t=20111211152033');
-  message.channel.send({embed});
-};
+  recievers.map(reciever => {
+    if (reciever.id === process.env.OWNER_ID) return message.channel.send(`Anything for you Dad! Here is your :cookie: ${reciever}!`)
+    if (reciever.id === process.env.FRIEND_ID) return message.channel.send(`Anything for my Dad's really close friend! There you go ${reciever} :cookie:`)
+    if (reciever.id === client.user.id) return message.channel.send('Chirp! Thank you :heart:')
+    if (reciever.id === message.author.id) return message.channel.send('Remember, sharing is caring!')
+    message.channel.send(`Hey ${reciever} i got a :cookie: for you that ${message.author} ordered! I baked it with love :heart:`)
+  })
+}
 
 exports.settings = {
-  enabled: true,     
+  enabled: true,
   public: true,
   PM: true,
   owneronly: false,
-  permissionsRequired: [],
-};
+  permissionsRequired: []
+}
 
 exports.help = {
-  name: 'sandvich',
-  description: '🍪 Gives mentioned user a sandvich.',
-  longDescription: "",
+  name: 'cookie',
+  description: '🍪 Gives mentioned userss a cookie.',
+  longDescription: '',
   usage: 'sandvich [mention]'
-};
+}
