@@ -1,35 +1,35 @@
-const Discord = require('discord.js');
+const embeds = require('../Utils/embeds')
 
 exports.run = (client, message, args, config) => {
-  if (!args[0]) {
-    const commandNames = Array.from(client.commands.keys());
-    const longest = commandNames.reduce((long, str) => Math.max(long, str.length), 0);
-    message.channel.send(`\`Use ${config.prefix}help <command> for more info!}\n\n\` \`\`\`${client.commands.map(c => `${config.prefix}${c.help.name}${' '.repeat(longest - c.help.name.length)} || ${c.help.description}`).join('\n')}\`\`\``);
-  } else {
-    let command = args[0];
-    if (client.commands.has(command)) {
-      command = client.commands.get(command);
-      let embed = new Discord.RichEmbed()
-        .setAuthor(config.prefix + command.help.name)
-        .setDescription(command.help.description)
-        .addField('Usage', command.help.usage);
-        
-      message.channel.send({embed});
-    }
+  let longest = Array.from(client.commands.keys()).reduce((long, str) => Math.max(long, str.length), 0)
+  let helpList = []
+  let command = client.commands.get(args[0])
+  if (command) {
+    if (!command.settings.public || command.settings.owneronly) return
+    return message.channel.send({ embed: embeds.helpDescEmbed(command) })
   }
-};
+  client.commands.map(c => {
+    if (!c.settings.public || c.settings.owneronly) return
+    if (args[0] === 'all') {
+      if (!c.settings.pm && message.channel.type === 'dm') return
+      if (c.settings.permissionsRequired[0] && !message.guild.member(message.author).hasPermission(c.settings.permissionsRequired[0])) return
+    }
+    helpList.push(`{ ${process.env.PREFIX}${c.help.name}${' '.repeat(longest - c.help.name.length)} : '${c.help.description}' }`)
+  })
+  message.channel.send(`Here is the list of commands you can use ❤\nTo see all the commands use ${process.env.PREFIX}help all\n${helpList.join('\n')}`, { code: 'css' })
+}
 
 exports.settings = {
-  enabled: true,     
+  enabled: true,
   public: true,
   pm: true,
   owneronly: false,
-  permissionsRequired: [],
-};
+  permissionsRequired: []
+}
 
 exports.help = {
   name: 'help',
-  description: '❔ Displays all the available commands. Duh!',
-  longDescription: "",
+  description: '❔ It will show you this window!!',
+  longDescription: '',
   usage: 'help [command]'
-};
+}
