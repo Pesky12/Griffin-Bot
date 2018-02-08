@@ -22,7 +22,6 @@ exports.ban = (e, b) => {
     `We no longer carry ${b} in our store, sorry for any inconvenience.`,
     `${b} has been destroyed by hippie powers.`,
     `File name ${b} has be deleted from this hard drive.`
-
   ]
   return randomize(messages)
 }
@@ -40,7 +39,6 @@ exports.warn = (u) => {
     `${u} no soup for you!`,
     `Your wingspan isn't that impressive, ${u}.`,
     `${u} don't make us call your mother.`
-
   ]
   return randomize(messages)
 }
@@ -56,7 +54,6 @@ exports.botCant = (u, a) => {
     `I can't ${a} ${u}, he has the high ground.`,
     `${u} has a blessing. I can't ${a} him!`,
     `I wish I could ${a} ${u}.`
-
   ]
   return randomize(messages)
 }
@@ -86,7 +83,6 @@ exports.kick = (e, b) => {
     `${b} miss me with that weak shit dawg.`,
     `${b} has been kicked because "My name Jeff" gets funnier after the 100th time.`
   ]
-
   return randomize(messages)
 }
 
