@@ -33,7 +33,13 @@ exports.ban = (e, b) => {
  */
 exports.warn = (u) => {
   let messages = [
-    `${u} has been warned`
+    `${u} has been warned`,
+    `${u}, you have been naughty.`,
+    `${u} shut fuck up.`,
+    `${u}, stop tweakin.`,
+    `${u} no soup for you!`,
+    `Your wingspan isn't that impressive, ${u}.`,
+    `${u} don't make us call your mother.`
 
   ]
   return randomize(messages)
