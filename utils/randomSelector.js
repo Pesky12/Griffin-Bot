@@ -1,10 +1,12 @@
+let messages = []
+
 /**
  *
  * @param {*collection} e Command executer
  * @param {*colletion} b  Banned user
  */
 exports.ban = (e, b) => {
-  let messages = [
+  messages = [
     `${b} has been slashed by the hammer!`,
     `${b}, hammer by-bye!`,
     `${b}, fourty years in the gulag!`,
@@ -31,7 +33,7 @@ exports.ban = (e, b) => {
  * @param {*collection} u Targeted user
  */
 exports.warn = (u) => {
-  let messages = [
+  messages = [
     `${u} has been warned`,
     `${u}, you have been naughty.`,
     `${u} shut fuck up.`,
@@ -49,7 +51,7 @@ exports.warn = (u) => {
  * @param {*collection} a Name of the action.
  */
 exports.botCant = (u, a) => {
-  let messages = [
+  messages = [
     `${u} has more power then me! I can't ${a} him`,
     `I can't ${a} ${u}, he has the high ground.`,
     `${u} has a blessing. I can't ${a} him!`,
@@ -64,7 +66,7 @@ exports.botCant = (u, a) => {
  * @param {*collection} a Name of the action.
  */
 exports.kick = (e, b) => {
-  let messages = [
+  messages = [
     `${b}, you know the rules, and so I!`,
     `${b}, take this time to reflect apon your actions.`,
     `${b} got the boot in the fruit!`,
