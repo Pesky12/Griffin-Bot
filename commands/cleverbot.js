@@ -1,7 +1,7 @@
 const Cleverbot = require('cleverbot-node')
 const clbot = new Cleverbot()
 
-module.exports.run = async(client, message, args, config) => {
+exports.run = async(client, message, args) => {
   clbot.configure({ botapi: process.env.CLEVER_BOT_TOKEN })
   let Input = args.join()
 
