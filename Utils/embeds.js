@@ -54,3 +54,13 @@ exports.currencyEmbed = (response) => {
     .setTimestamp(new Date())
   return embed
 }
+
+exports.helpDescEmbed = (i) => {
+  let helpIconUrl = 'https://cdn2.iconfinder.com/data/icons/flat-style-svg-icons-part-1/512/confirmation_verification-512.png'
+  let embed = new Discord.RichEmbed()
+  .setAuthor(process.env.PREFIX + i.help.name, helpIconUrl)
+  .setDescription(i.help.longDescription || i.help.description)
+  .addField('Usage', `${process.env.PREFIX}${i.help.usage}`)
+
+  return embed
+}
