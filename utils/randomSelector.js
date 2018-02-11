@@ -1,3 +1,9 @@
+function randomize (randomGreetings) {
+  let randomNumber = Math.floor(Math.random() * randomGreetings.length)
+  let greetings = randomGreetings[randomNumber]
+  return greetings
+}
+
 let messages = []
 
 /**
@@ -88,8 +94,13 @@ exports.kick = (e, b) => {
   return randomize(messages)
 }
 
-function randomize (randomGreetings) {
-  let randomNumber = Math.floor(Math.random() * randomGreetings.length)
-  let greetings = randomGreetings[randomNumber]
-  return greetings
+/**
+ *
+ * @param {*collection} b Targeted user
+ */
+exports.mute = (b) => {
+  messages = [
+    `I ductaped ${b}'s mouth`
+  ]
+  return randomize(messages)
 }
