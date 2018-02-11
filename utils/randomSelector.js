@@ -104,3 +104,14 @@ exports.mute = (b) => {
   ]
   return randomize(messages)
 }
+
+/**
+ *
+ * @param {*collection} b Targeted user
+ */
+exports.unmute = (b) => {
+  messages = [
+    `I un-ductaped ${b}'s mouth`
+  ]
+  return randomize(messages)
+}
