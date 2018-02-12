@@ -93,6 +93,17 @@ exports.translateEmbed = (translateArray) => {
     .addField('To:', langTo, true)
     .addField('Output', translateArray)
     .setColor('#0273d6')
-  if (translated.from.text.didYouMean || translated.from.text.autoCorrected) embed.addField('BTW did you mean?')
+  if (translateArray.from.text.didYouMean || translateArray.from.text.autoCorrected) embed.addField('BTW did you mean?')
+  return embed
+}
+
+exports.urbanEmbed = (res) => {
+  const embed = new Discord.RichEmbed()
+  .setAuthor(`Urban of "${res.word}"`)
+  .setDescription(res.definition)
+  .setColor('#17b3d6')
+  .addField('Example', `${res.example}.`)
+  .setFooter(`${res.urbanURL} | ⬆ ${res.thumbsUp} | ⬇ ${res.thumbsDown}`);
+
   return embed
 }
