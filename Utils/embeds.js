@@ -73,6 +73,26 @@ exports.helpDescEmbed = (user) => {
     .addField('Full Username', `${user.tag}`, true)
     .addField('User ID', `${user.id}`, true)
     .addField('Status', user.presence.status.charAt(0).toUpperCase(), true)
-    .addField('Playing', user.presence.game || 'Nothing, true)
+    .addField('Playing', user.presence.game || 'Nothing', true)
     .addField(`Joined Discord`, user.createdAt)
+  return embed
+}
+
+exports.profilePicEmbed = (user) => {
+  let embed = new Discord.RichEmbed()
+    .setAuthor('Link', user.displayAvatarURL, user.displayAvatarURL)
+    .setColor('#1bba31')
+    .setImage(user.displayAvatarURL)
+  return embed
+}
+
+exports.translateEmbed = (translateArray) => {
+  let embed = new Discord.RichEmbed()
+    .setAuthor(`Translate: ${toTranslate}`, 'http://icons.iconarchive.com/icons/marcus-roberto/google-play/512/Google-Translate-icon.png')
+    .addField('From:', translateArray.from.language.iso, true)
+    .addField('To:', langTo, true)
+    .addField('Output', translateArray)
+    .setColor('#0273d6')
+  if (translated.from.text.didYouMean || translated.from.text.autoCorrected) embed.addField('BTW did you mean?')
+  return embed
 }
