@@ -64,3 +64,15 @@ exports.helpDescEmbed = (i) => {
 
   return embed
 }
+
+exports.helpDescEmbed = (user) => {
+  let embed = new Discord.RichEmbed()
+    .setAuthor(`${user.tag}`, user.avatarURL)
+    .setColor('#331dc4')
+    .setThumbnail(user.avatarURL)
+    .addField('Full Username', `${user.tag}`, true)
+    .addField('User ID', `${user.id}`, true)
+    .addField('Status', user.presence.status.charAt(0).toUpperCase(), true)
+    .addField('Playing', user.presence.game || 'Nothing, true)
+    .addField(`Joined Discord`, user.createdAt)
+}
