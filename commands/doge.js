@@ -3,9 +3,10 @@ const embeds = require('../Utils/embeds')
 
 exports.run = (client, message, args, config) => {
   args = args.join(' ').split(' to ')
-  let crypto = args[0].toUpperCase() || 'DOGE'
-  let convertTo = args[1].toUpperCase() || 'USD'
-  got(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${crypto}&tsyms=${convertTo}`).then(response => {
+  console.log(args)
+  let crypto = args[0] || 'DOGE'
+  let convertTo = args[1] || 'USD'
+  got(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${crypto.toUpperCase()}&tsyms=${convertTo.toUpperCase()}`).then(response => {
     response = JSON.parse(response.body)
     response = response['DISPLAY'][crypto || convertTo][convertTo || crypto]
     console.log(response)

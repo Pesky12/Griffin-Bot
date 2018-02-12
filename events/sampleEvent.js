@@ -1,16 +1,13 @@
-const Discord = require('discord.js');
+exports.run = (client, config) => {
 
-exports.run = (client, config) =>{
+}
 
+exports.help = {
+  name: '',
+  description: ''
+}
 
-  };
-
-  exports.help = {
-    name:"",
-    description: ""
-  }
-
-  exports.settings = {
-        enabled: false,    
-        public: false,
-  };
+exports.settings = {
+  enabled: false,
+  public: false
+}

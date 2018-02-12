@@ -30,6 +30,6 @@ exports.help = {
 }
 
 exports.settings = {
-      enabled: true,     
-      public: false,
-};
+      enabled: false,
+      public: false
+}
