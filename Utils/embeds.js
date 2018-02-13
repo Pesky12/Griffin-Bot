@@ -86,17 +86,6 @@ exports.profilePicEmbed = (user) => {
   return embed
 }
 
-exports.translateEmbed = (translateArray) => {
-  let embed = new Discord.RichEmbed()
-    .setAuthor(`Translate: ${toTranslate}`, 'http://icons.iconarchive.com/icons/marcus-roberto/google-play/512/Google-Translate-icon.png')
-    .addField('From:', translateArray.from.language.iso, true)
-    .addField('To:', langTo, true)
-    .addField('Output', translateArray)
-    .setColor('#0273d6')
-  if (translateArray.from.text.didYouMean || translateArray.from.text.autoCorrected) embed.addField('BTW did you mean?')
-  return embed
-}
-
 exports.urbanEmbed = (res) => {
   const embed = new Discord.RichEmbed()
   .setAuthor(`Urban of "${res.word}"`)
