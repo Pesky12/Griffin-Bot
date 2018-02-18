@@ -12,12 +12,11 @@
   "dependencies": {
     "MALjs": "^0.1.0",
     "booru": "^0.3.3",
-    "cat-facts": "^1.0.2",
-    "chalk": "2.3.0",
     "cleverbot-node": "^0.3.11",
     "discord.js": "^11.2.1",
     "dotenv": "5.0.0",
     "ffmpeg-binaries": "3.2.2-3",
+    "firebase-admin": "5.8.2",
     "google-translate-api": "^2.3.0",
     "got": "8.0.1",
     "he": "^1.1.1",
@@ -27,7 +26,9 @@
     "relevant-urban": "^2.0.0",
     "sfwbooru": "0.0.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "natural-brain": "0.3.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@bitbucket.org/Peskyn12/griffin-bot.git"

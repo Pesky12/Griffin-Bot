@@ -1,6 +1,7 @@
 const embeds = require('../Utils/embeds')
+const permissionCheck = require('../Utils/checkAccess').run
 
-exports.run = (client, message, args, config) => {
+exports.run = async (client, message, args, config) => {
   let longest = Array.from(client.commands.keys()).reduce((long, str) => Math.max(long, str.length), 0)
   let helpList = []
   let command = client.commands.get(args[0])
@@ -8,14 +9,17 @@ exports.run = (client, message, args, config) => {
     if (!command.settings.public || command.settings.owneronly) return
     return message.channel.send({ embed: embeds.helpDescEmbed(command) })
   }
-  client.commands.map(c => {
-    if (!c.settings.public || c.settings.owneronly) return
-    if (args[0] === 'all') {
-      if (!c.settings.pm && message.channel.type === 'dm') return
-      if (c.settings.permissionsRequired[0] && !message.guild.member(message.author).hasPermission(c.settings.permissionsRequired[0])) return
+  let imustpromisecuzjs = client.commands.map(async c => {
+    if (args[0] !== 'all') {
+      let access = await permissionCheck(message, c)
+      if (!access) return
+      console.log(JSON.stringify(access) + ' ' + c.help.name)
+    } else {
+      if (!c.settings.public || c.settings.owneronly) return
     }
     helpList.push(`{ ${process.env.PREFIX}${c.help.name}${' '.repeat(longest - c.help.name.length)} : '${c.help.description}' }`)
   })
+  await Promise.all(imustpromisecuzjs)
   message.channel.send(`Here is the list of commands you can use ❤\nTo see all the commands use ${process.env.PREFIX}help all\n${helpList.join('\n')}`, { code: 'css' })
 }
 
