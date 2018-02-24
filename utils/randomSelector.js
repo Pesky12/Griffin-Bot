@@ -115,3 +115,17 @@ exports.unmute = (b) => {
   ]
   return randomize(messages)
 }
+
+exports.userJoin = (b) => {
+  let messages = [
+    `I saw that ${b} joined! Say hello to him`
+  ]
+  return randomize(messages)
+}
+
+exports.userLeft = (b) => {
+  let messages = [
+    `I saw that ${b} joined! Say hello to him`
+  ]
+  return randomize(messages)
+}
