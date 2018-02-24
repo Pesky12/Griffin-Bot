@@ -92,7 +92,21 @@ exports.urbanEmbed = (res) => {
   .setDescription(res.definition)
   .setColor('#17b3d6')
   .addField('Example', `${res.example}.`)
-  .setFooter(`${res.urbanURL} | ⬆ ${res.thumbsUp} | ⬇ ${res.thumbsDown}`);
+  .setFooter(`${res.urbanURL} | ⬆ ${res.thumbsUp} | ⬇ ${res.thumbsDown}`)
 
   return embed
+}
+
+exports.animeEmbed = (result) => {
+  return new Discord.RichEmbed()
+        .setDescription(result.synopsis)
+        .setAuthor(`${result.anime[0].title} | ${result.anime[0].english}`, result.anime[0].image.toString())
+        .setThumbnail(result.anime[0].image.toString())
+        .setColor('#8d17d6')
+        .addField('Episodes', result.anime[0].episodes, true)
+        .addField('Type', result.anime[0].type, true)
+        .addField('Score', result.anime[0].score, true)
+        .addField('Status', result.anime[0].status, true)
+        .addField('Start date', `${result.anime[0].start_date}`, true)
+        .addField('End date', result.anime[0].end_date, true)
 }
