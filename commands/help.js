@@ -1,5 +1,5 @@
 const embeds = require('../Utils/embeds')
-const permissionCheck = require('../Utils/firestoreService')
+const permissionCheck = require('../Utils/checkAccess')
 
 exports.run = async (client, message, args, config) => {
   let longest = Array.from(client.commands.keys()).reduce((long, str) => Math.max(long, str.length), 0)
