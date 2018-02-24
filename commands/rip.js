@@ -3,10 +3,10 @@ const Jimp = require('jimp')
 exports.run = (client, message, args) => {
   message.channel.startTyping()
   let rip = args.join(' ')
-  Jimp.read('http://tombgen.appspot.com/images/tombstone.png', function (err, image) {
-    Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then(function (font) {
+  Jimp.read('http://tombgen.appspot.com/images/tombstone.png', function(err, image) {
+    Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then(function(font) {
       image.print(font, 143, 107, rip, 400)
-      image.write(`../img/rip${message.author.id}.png`, function () {
+      image.write(`../img/rip${message.author.id}.png`, function() {
         message.channel.send({file: `../img/rip${message.author.id}.png`})
       })
     })

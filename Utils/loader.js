@@ -1,5 +1,4 @@
 const fs = require('fs')
-const Discord = require('discord.js')
 
 exports.run = (loadFolder, collection, requiring, client, db) => {
   fs.readdir(loadFolder, (err, files) => {

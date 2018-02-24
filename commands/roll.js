@@ -1,9 +1,8 @@
 const randomgen = require('random-natural')
 
 exports.run = async(client, message, args) => {
-  let messageSent = message.channel.send('🎲 Rolling the dice!')
-  let gen = randomgen({ min: args[0], max: args[1] })
-  messageSent.edit(`🎲 You rolled ${gen}`)
+  let gen = randomgen({ min: args[0] || 0, max: args[1] || 20 })
+  message.channel.send('🎲 Rolling the dice!').then(msg => msg.edit(`🎲 You rolled ${gen}`))
 }
 
 exports.settings = {

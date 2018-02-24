@@ -1,5 +1,5 @@
 const embeds = require('../Utils/embeds')
-const permissionCheck = require('../Utils/checkAccess').run
+const permissionCheck = require('../Utils/firestoreService')
 
 exports.run = async (client, message, args, config) => {
   let longest = Array.from(client.commands.keys()).reduce((long, str) => Math.max(long, str.length), 0)
@@ -13,7 +13,6 @@ exports.run = async (client, message, args, config) => {
     if (args[0] !== 'all') {
       let access = await permissionCheck(message, c)
       if (!access) return
-      console.log(JSON.stringify(access) + ' ' + c.help.name)
     } else {
       if (!c.settings.public || c.settings.owneronly) return
     }

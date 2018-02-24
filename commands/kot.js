@@ -3,7 +3,7 @@ exports.run = async(client, message) => {
 }
 
 exports.settings = {
-  enabled: true,
+  enabled: false,
   public: true,
   PM: true,
   owneronly: false,
