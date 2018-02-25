@@ -6,8 +6,10 @@
   "author": "Aleš Olesov",
   "license": "MIT",
   "scripts": {
-    "start": "node .",
-    "test": "standard && node "
+    "start": "nodemon lib/app.js --exec babel-node --presets es2015,stage-2",
+    "build": "babel lib -d dist --presets es2015,stage-2",
+    "serve": "node dist/app.js",
+    "test": "standart"
   },
   "dependencies": {
     "MALjs": "^0.1.0",
@@ -27,7 +29,10 @@
     "sfwbooru": "0.0.2"
   },
   "devDependencies": {
-    "natural-brain": "0.3.2"
+    "babel-cli": "6.26.0",
+    "babel-preset-es2015": "6.24.1",
+    "babel-preset-stage-2": "6.24.1",
+    "standart": "6.1.0"
   },
   "repository": {
     "type": "git",
@@ -37,5 +42,5 @@
     "chatbot",
     "discord"
   ],
-  "homepage": "https://bitbucket.org/Peskyn12/griffin-bot#readme"
+  "homepage": "https://bitbucket.org/Pesky12/griffin-bot#readme"
 }
