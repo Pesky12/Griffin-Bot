@@ -1,4 +1,6 @@
 {
     "presets": ["env"],
-    "plugins": ["inline-dotenv"]
+    "plugins": [["inline-dotenv",{
+    path: '.env'
+  }]]
   }

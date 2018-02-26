@@ -2,13 +2,12 @@
   "name": "gryphonbot",
   "version": "3.2.4",
   "description": "Chatbot for discord",
-  "main": "app.js",
+  "main": "./lib/app.js",
   "author": "Aleš Olesov",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon lib/app.js --exec babel-node",
-    "build": "babel lib -d dist",
-    "serve": "node dist/app.js",
+    "start": "babel-node .",
+    "dev": "nodemon lib/app.js --exec babel-node",
     "test": "standart"
   },
   "dependencies": {
