@@ -13,6 +13,9 @@
   },
   "dependencies": {
     "MALjs": "^0.1.0",
+    "babel-cli": "6.26.0",
+    "babel-plugin-inline-dotenv": "1.1.2",
+    "babel-preset-env": "1.6.1",
     "booru": "^0.3.3",
     "cleverbot-node": "^0.3.11",
     "discord.js": "^11.2.1",
@@ -29,9 +32,6 @@
     "sfwbooru": "0.0.2"
   },
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-stage-2": "6.24.1",
     "standart": "6.1.0"
   },
   "repository": {
