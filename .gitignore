@@ -88,3 +88,7 @@ $RECYCLE.BIN/
 .VolumeIcon.icns
 .com.apple.timemachine.donotpresent
 firebase.json
+
+#Coverage
+.nyc_output/
+coverage/

@@ -1,6 +1,13 @@
 {
     "presets": ["env"],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    },
     "plugins": [["inline-dotenv",{
-    path: '.env'
+    "path": ".env"
   }]]
   }
