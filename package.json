@@ -8,7 +8,7 @@
   "scripts": {
     "start": "babel-node .",
     "dev": "nodemon lib/app.js --exec babel-node",
-    "test": "cross-env NODE_ENV=test nyc mocha --compilers=js:babel-core/register --require=babel-polyfill --reporter=lcovonly -R spec && cat ./coverage/lcov.info | node_modules/.bin/codacy-coverage -p ."
+    "test": "cross-env NODE_ENV=test nyc mocha --compilers=js:babel-core/register --require=babel-polyfill --reporter=lcovonly -R=spec && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
   },
   "nyc": {
     "require": [
