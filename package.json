@@ -9,7 +9,7 @@
     "start": "nodemon lib/app.js --exec babel-node",
     "build": "babel lib -d dist",
     "serve": "node dist/app.js",
-    "test": "cross-env NODE_ENV=test nyc mocha --compilers=js:babel-core/register --require=babel-polyfill --reporter=lcovonly -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
+    "test": "cross-env NODE_ENV=test nyc mocha --recursive --compilers=js:babel-core/register --require=babel-polyfill --reporter=lcovonly -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
   },
   "nyc": {
     "require": [
