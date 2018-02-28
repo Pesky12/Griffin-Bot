@@ -7,14 +7,25 @@
   "license": "MIT",
   "scripts": {
     "start": "babel-node .",
-    "dev": "nodemon lib/app.js --exec babel-node",
-    "test": "standart"
+    "dev": "nodemon lib/app.js --exec babel-node", 
+    "build": "babel index.js -d src",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage",
+    "prepublish": "npm run build"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
   },
   "dependencies": {
     "MALjs": "^0.1.0",
-    "babel-cli": "6.26.0",
     "babel-plugin-inline-dotenv": "1.1.2",
-    "babel-preset-env": "1.6.1",
     "booru": "^0.3.3",
     "cleverbot-node": "^0.3.11",
     "discord.js": "^11.2.1",
@@ -31,6 +42,14 @@
     "sfwbooru": "0.0.2"
   },
   "devDependencies": {
+    "babel-cli": "6.26.0",
+    "babel-plugin-istanbul": "4.1.5",
+    "babel-preset-env": "1.6.1",
+    "babel-register": "6.26.0",
+    "chai": "4.1.2",
+    "cross-env": "5.1.3",
+    "mocha": "5.0.1",
+    "nyc": "11.4.1",
     "standart": "6.1.0"
   },
   "repository": {
