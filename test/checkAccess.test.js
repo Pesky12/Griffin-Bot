@@ -1,9 +1,10 @@
-import { returnTrue } from "../lib/Utils/checkAccess";
-import * as assert from 'assert'
+import { checkPerms, checkCommandPerms } from "../lib/Utils/checkAccess";
+import { mockUser } from "../lib/Utils/mockData";
 
-describe('Return true', () => {
-  it('Should return true', () =>{
-    let returnFunc = returnTrue()
-    assert.equal(returnFunc, true)
+describe('checkPerms', () => {
+  it('Should return true if command is not restricted.', () => {
+    const mockData = mockUser()
+    const mock
+   checkCommandPerms()
   })
 })
