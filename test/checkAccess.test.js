@@ -1,10 +1,14 @@
 import { checkPerms, checkCommandPerms } from "../lib/Utils/checkAccess";
-import { mockUser } from "../lib/Utils/mockData";
+import { mockUser, mockGuildMember, mockChannel } from "../lib/Utils/mockData";
+import assert from 'assert'
+import { Permissions } from "discord.js";
 
 describe('checkPerms', () => {
+  let cmd = require('../lib/commands/ban')
   it('Should return true if command is not restricted.', () => {
-    const mockData = mockUser()
-    const mock
-   checkCommandPerms()
+    let mockPerms = new Permissions("BAN_MEMBERS")
+    process.env.OWNER_ID = 235047463017381888
+    let functionMock = checkCommandPerms(mockUser(235047463017381888), mockPerms, cmd, mockChannel(), cmd.settings)
+  assert.equal(true, functionMock)
   })
 })
