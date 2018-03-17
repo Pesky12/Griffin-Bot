@@ -9,12 +9,9 @@
     "start": "nodemon --exec 'ts-node -r dotenv/config ./lib/app'",
     "build": "tsc",
     "serve": "node build/app",
-    "test": "cross-env NODE_ENV=test nyc mocha --recursive --require ts-node/register --reporter=lcovonly -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
+    "test": "cross-env NODE_ENV=test nyc mocha --recursive --require=ts-node/register --reporter=lcovonly -R spec && cat ./coverage/lcov.info | ./node_modules/.bin/codacy-coverage && rm -rf ./coverage"
   },
   "nyc": {
-    "require": [
-      "babel-register"
-    ],
     "reporter": [
       "lcov",
       "text"
