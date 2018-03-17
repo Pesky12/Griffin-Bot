@@ -92,3 +92,6 @@ firebase.json
 #Coverage
 .nyc_output/
 coverage/
+
+# TS-node cache
+.tscache/

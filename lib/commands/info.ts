@@ -1,7 +1,8 @@
-const Discord = require('discord.js')
-exports.run = async(client, message) => {
+import { Message, Client, RichEmbed } from "discord.js"
+
+exports.run = async(client: Client, message: Message) => {
   let invitelink = await client.generateInvite(8)
-  let embed = new Discord.RichEmbed()
+  let embed = new RichEmbed()
     .setTitle(`Infoboard for ${client.user.username}`)
     .setDescription('Here is some info about this bot!!')
     .addField('Uptime', `${client.uptime} Miliseconds`, true)
@@ -12,7 +13,7 @@ exports.run = async(client, message) => {
     .addField('Dogecoin', 'D5M6JbBDUkBbRfppNZZeGuyWzAAqgjghPg')
     .setColor('#7f16ff')
     .setThumbnail(client.users.get('235047463017381888').avatarURL)
-  message.channel.send({embed})
+  message.channel.send({ embed })
   console.log(embed)
 }
 

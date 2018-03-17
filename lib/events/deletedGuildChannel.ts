@@ -1,4 +1,3 @@
-import embeds from '../Utils/embeds'
 import { RichEmbed } from 'discord.js'
 
 exports.run = (client, config) => {

@@ -1,9 +1,10 @@
-exports.run = (client, message, args) => {
-  var userChoice = args.join(' ')
+exports.run = (_client, message, args) => {
+  let userChoice = args.join(' ')
 
-  var computerChoice = Math.random()
-  if (computerChoice < 0.34) computerChoice = 'rock'
-  else if (computerChoice <= 0.67) computerChoice = 'paper'
+  let randomNumber: number = Math.random()
+  let computerChoice: string
+  if (randomNumber < 0.34) computerChoice = 'rock'
+  else if (randomNumber <= 0.67) computerChoice = 'paper'
   else computerChoice = 'scissors'
   let choice = compare(userChoice, computerChoice)
   message.channel.send(`I choose ${computerChoice}!!\n${choice}`)
@@ -23,7 +24,7 @@ exports.help = {
   longDescription: '',
   usage: 'rps [👊 Rock | ✋Paper | ✌Scissors!]'
 }
-function compare (choice1, choice2) {
+function compare (choice1: string, choice2: string) {
   if (choice1 === choice2) {
     return 'Looks like we tied!'
   }

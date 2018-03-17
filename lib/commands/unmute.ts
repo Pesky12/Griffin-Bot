@@ -1,9 +1,10 @@
 import { unmute } from '../Utils/randomSelector'
+import { Message } from 'discord.js'
 
-exports.run = async(client, message, args) => {
+exports.run = async (message: Message) => {
   let users = message.mentions.users
   if (users.size < 1) return message.channel.send('Can you mention them?')
-  let messageArray = []
+  let messageArray: Array<string> = []
   users.map(userToMute => {
     message.channel.overwritePermissions(userToMute, {
       SEND_MESSAGES: true,

@@ -1,19 +1,21 @@
-import { booruEmbed, infoEmbed } from '../Utils/embeds'
-import sfwbooru from 'sfwbooru'
-import nsfwbooru from 'booru'
+import * as nsfwbooru from 'booru'
+import * as sfwbooru from 'sfwbooru'
+import { Message } from 'discord.js'
 
-exports.run = async(client, message, args) => {
+import { booruEmbed, infoEmbed } from '../Utils/embeds'
+
+exports.run = async (message: Message, args: Array<string>) => {
   let booru = sfwbooru
-  if (message.channel.nsfw) booru = nsfwbooru
+  if (message.channel.type === 'dm' || message.channel.nsfw) booru = nsfwbooru
   let booruName = args[0]
   let tags = args.slice(1)
   booru.search(booruName, tags, { limit: 1, random: true })
-  .catch(err => {
-    if (err.message === 'Site not supported') message.channel.send(infoEmbed(err.message, 'Use ~help booru to see supported boorus'))
-    else message.channel.send(infoEmbed('Problem searching booru', 'Try checking your tags or try later'))
+  .catch((err: Error) => {
+    if (err.message === 'Site not supported') message.channel.send(infoEmbed(err.message, 'Use ~help booru to see supported boorus', '#00000'))
+    else message.channel.send(infoEmbed('Problem searching booru', 'Try checking your tags or try later', '#00000'))
   })
   .then(booru.commonfy)
-  .then(image => {
+  .then((image: string) => {
     message.channel.send({ embed: booruEmbed(image) })
   })
 }

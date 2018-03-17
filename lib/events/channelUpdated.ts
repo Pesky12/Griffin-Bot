@@ -1,13 +1,13 @@
-import { RichEmbed } from "discord.js";
+import { RichEmbed, Client } from "discord.js";
 
-exports.run = (client, config) => {
+exports.run = (client: Client) => {
   client.on('channelUpdate', async(oldChannel, newChannel) => {
     if (!newChannel.guild.channels.exists('name', 'mod-log')) return
     let auditLog = await oldChannel.guild.fetchAuditLogs({ limit: 1, type: 11 })
     let auditLogEntry = auditLog.entries.first()
-    let oldValues = []
-    let newValues = []
-    auditLogEntry.changes.forEach(change => {
+    let oldValues: Array<string> = []
+    let newValues: Array<string> = []
+    auditLogEntry.changes.forEach((change: any) => {
       if (change.key === 'permission_overwrites') return
       newValues.push(`${change.key}: ${change.new}`)
       oldValues.push(`${change.key}: ${change.old}`)

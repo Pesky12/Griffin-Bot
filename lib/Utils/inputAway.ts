@@ -1,20 +1,12 @@
-import { RichEmbed } from 'discord.js'
+import { RichEmbed, Collector, Message, Collection } from 'discord.js'
 
-/**
- * Awaits chat input, returns collection
- * @param {*Discord Channel} channel
- * @param {*Time before timeout} time
- * @param {*Maximum of messages} max
- * @param {*Filters to apply} filter
- * @param {*Title of the awaiting embed} title
- */
-exports.run = async(channel, time, max, filter, title) => {
+export async function awaitInput (channel, time, max, filter, title) {
   let embed = new RichEmbed()
           .setTitle(title)
           .setDescription('Awaiting input....')
           .setColor('#d15b12')
   let embedAwait = await channel.send({embed})
-  var textRecived = await channel.awaitMessages(filter, {time: time, max: max, errors: ['time']}).catch(() => {
+  let textRecived: Collection<Message, Message> = await channel.awaitMessages(filter, {time: time, max: max, errors: ['time']}).catch(() => {
     let embedError = new RichEmbed()
           .setTitle('Invalid arguments.')
           .setColor('#d15b12')

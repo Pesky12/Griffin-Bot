@@ -1,9 +1,10 @@
 import urban from 'relevant-urban'
 import { urbanEmbed } from '../Utils/embeds'
+import { Message } from 'discord.js';
 
-exports.run = (client, message, args) => {
+exports.run = (message: Message, args: Array<string>) => {
   let toUrban = args.join(' ') || 'Avian'
-  urban(toUrban).then(res => { message.channel.send({embed: urbanEmbed(res)}) }).catch(err => {
+  urban(toUrban).then((res: Array<any>) => { message.channel.send({ embed: urbanEmbed(res) }) }).catch((err: Error) => {
     console.log(err)
     message.channel.send(`I can' find ${toUrban}.`)
   })

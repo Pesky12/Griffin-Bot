@@ -1,6 +1,7 @@
-exports.run = (client, message, args) => {
+import { Client, Message } from 'discord.js';
+exports.run = (client: Client, message: Message, args: Array<string>) => {
   let recievers = message.mentions.users
-  if (recievers.lenght < 1) {
+  if (recievers.size < 1) {
     message.channel.send('Who is the lucky one i should send the :cookie: to?')
   }
 
@@ -23,7 +24,7 @@ exports.settings = {
 
 exports.help = {
   name: 'cookie',
-  description: '🍪 Gives mentioned userss a cookie.',
+  description: '🍪 Gives mentioned users a cookie.',
   longDescription: '',
-  usage: 'sandvich [mention]'
+  usage: 'cookie [mention]'
 }

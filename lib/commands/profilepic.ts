@@ -1,8 +1,9 @@
 import { profilePicEmbed } from '../Utils/embeds'
+import { Client, Message } from 'discord.js';
 
-module.exports.run = (client, message, args) => {
-  let user = message.mentions.users.first() || client.users.get(args[0]) || message.autho
-  message.channel.send({embed: profilePicEmbed(user)})
+module.exports.run = (client: Client, message: Message, args: Array<string>) => {
+  let user = message.mentions.users.first() || client.users.get(args[0]) || message.author
+  message.channel.send({ embed: profilePicEmbed(user) })
 }
 
 exports.settings = {
