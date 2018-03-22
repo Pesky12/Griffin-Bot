@@ -1,6 +1,3 @@
 {
-    "discord.enabled": true,
-    "cSpell.words": [
-        "griffinbot"
-    ]
+    "typescript.tsdk": "./node_modules/typescript/lib"
 }
