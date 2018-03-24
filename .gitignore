@@ -95,3 +95,6 @@ coverage/
 
 # TS-node cache
 .tscache/
+
+#Ignore local tools Folder
+tools/
