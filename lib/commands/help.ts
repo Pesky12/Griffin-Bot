@@ -12,7 +12,7 @@ exports.run = async (client, message, args, config) => {
   }
   let imustpromisecuzjs = client.commands.map(c => {
     if (args[0] !== 'all') {
-      let access = checkAccess(message, c)
+      let access = checkAccess()
       if (!access) return
     } else {
       if (!c.settings.public || c.settings.owneronly) return

@@ -1,4 +1,4 @@
-import { Client, Message } from 'discord.js';
+import { Message } from 'discord.js'
 import { currencyEmbed } from '../Utils/embeds'
 
 const got = require('got')

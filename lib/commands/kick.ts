@@ -1,4 +1,4 @@
-import { Message, User, MessageMentions } from 'discord.js'
+import { Message, MessageMentions } from 'discord.js'
 import { botCant } from '../Utils/randomSelector'
 exports.run = (message: Message, args: Array<string>) => {
   let usersToBan: MessageMentions = message.mentions

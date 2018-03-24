@@ -1,4 +1,4 @@
-import { Message, User, Client, TextChannel, GuildMember, Guild, Channel, GuildChannel } from 'discord.js'
+import { User, Client, GuildMember, GuildChannel } from 'discord.js'
 
 export function mockGuildMember (memberID, roles) {
   return new GuildMember (mockGuild(), {

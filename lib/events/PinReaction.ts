@@ -6,7 +6,7 @@ exports.run = (client, config) => {
 }
 
 exports.help = {
-  name:'Role created',
+  name: 'Role created',
   description: 'Triggered when role is created'
 }
 

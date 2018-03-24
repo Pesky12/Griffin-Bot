@@ -68,8 +68,8 @@ export function botCant (u, a) {
 
 /**
  *
- * @param {*collection} u Targeted user
- * @param {*collection} a Name of the action.
+ * @param e
+ * @param b
  */
 export function kick (e, b) {
   messages = [

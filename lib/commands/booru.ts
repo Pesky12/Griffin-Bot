@@ -1,22 +1,20 @@
 import * as nsfwbooru from 'booru'
 import * as sfwbooru from 'sfwbooru'
-import { Message } from 'discord.js'
-
+import { Message, GuildChannel, DMChannel } from 'discord.js'
 import { booruEmbed, infoEmbed } from '../Utils/embeds'
 
 exports.run = async (message: Message, args: Array<string>) => {
   let booru = sfwbooru
-  if (message.channel.type === 'dm' || message.channel.nsfw) booru = nsfwbooru
-  let booruName = args[0]
-  let tags = args.slice(1)
+  if ((message.channel instanceof DMChannel) || (message.channel instanceof GuildChannel && message.channel.nsfw)) {
+	  booru = nsfwbooru
+  }
+  const booruName = args[args.length - 1]
+  const tags = args.slice(args.length - 1)
   booru.search(booruName, tags, { limit: 1, random: true })
   .catch((err: Error) => {
-    if (err.message === 'Site not supported') message.channel.send(infoEmbed(err.message, 'Use ~help booru to see supported boorus', '#00000'))
-    else message.channel.send(infoEmbed('Problem searching booru', 'Try checking your tags or try later', '#00000'))
   })
   .then(booru.commonfy)
   .then((image: string) => {
-    message.channel.send({ embed: booruEmbed(image) })
   })
 }
 

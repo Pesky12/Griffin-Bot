@@ -1,7 +1,7 @@
 import { RichEmbed } from 'discord.js'
 
 exports.run = (client, config) => {
-  client.on('channelDelete', async(channel) => {
+  client.on('channelDelete', async (channel) => {
     if (!channel.guild.channels.exists('name', 'mod-log')) return
     let auditLog = await channel.guild.fetchAuditLogs({ limit: 1, type: 12 })
     let auditLogEntry = auditLog.entries.first()

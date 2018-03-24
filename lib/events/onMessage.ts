@@ -9,7 +9,8 @@ async function CommandHandler (client: Client, message: Message) {
   let commandName = messageHandle[0].slice(prefix.length)
   let command = client.commands.get(commandName)
   if (command) {
-    let settings = await getCommandSettings(message.guild, command)
+	  let settings: Promise<any>
+	  settings = await
     console.log(settings)
     if (checkCommandPerms(command, settings, message)) {
       command.run(client, message, args)

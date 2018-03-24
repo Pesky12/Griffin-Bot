@@ -1,6 +1,7 @@
-import firebase  from 'firebase-admin';
-import { Client } from 'discord.js';
-import { loader } from './Utils/loader';
+import * as firebase from 'firebase-admin'
+import { Client } from 'discord.js'
+import { loader } from './Utils/loader'
+
 const client = new Client()
 
 firebase.initializeApp({

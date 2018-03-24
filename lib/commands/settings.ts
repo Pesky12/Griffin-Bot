@@ -1,5 +1,5 @@
 import * as admin from 'firebase-admin'
-import { Message, Client } from 'discord.js';
+import { Message, Client } from 'discord.js'
 
 exports.run = (client: Client,message: Message, args: Array<string>) => {
   let cmd = client.commands.get(args[1])

@@ -1,7 +1,7 @@
-import { RichEmbed, Client } from "discord.js";
+import { RichEmbed, Client } from 'discord.js'
 
 exports.run = (client: Client) => {
-  client.on('channelUpdate', async(oldChannel, newChannel) => {
+  client.on('channelUpdate', async (oldChannel, newChannel) => {
     if (!newChannel.guild.channels.exists('name', 'mod-log')) return
     let auditLog = await oldChannel.guild.fetchAuditLogs({ limit: 1, type: 11 })
     let auditLogEntry = auditLog.entries.first()

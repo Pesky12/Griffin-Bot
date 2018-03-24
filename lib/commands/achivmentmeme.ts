@@ -1,9 +1,7 @@
-import { CommandSetting } from './../Utils/moduleClass';
 import { Client, Message } from 'discord.js'
 import * as Jimp from 'jimp'
 
 import { awaitInput } from '../Utils/inputAway'
-import { ModuleSettings } from '../Utils/moduleClass';
 
 exports.run = async (client: Client, message: Message, args: Array<string>) => {
   let achievURL = 'https://www.minecraftskinstealer.com/achievement/a.php?i=1&h=Achievement+get%21&t='
@@ -28,5 +26,16 @@ exports.run = async (client: Client, message: Message, args: Array<string>) => {
 }
 
 exports.settings = {
-  enabled: false
+  enabled: true,
+  public: true,
+  PM: false,
+  owneronly: false,
+  permissionsRequired: []
+}
+
+exports.help = {
+  name: 'achieve',
+  description: '',
+  longDescription: '',
+  usage: ''
 }

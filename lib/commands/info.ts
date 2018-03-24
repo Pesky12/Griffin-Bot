@@ -1,6 +1,6 @@
-import { Message, Client, RichEmbed } from "discord.js"
+import { Message, Client, RichEmbed } from 'discord.js'
 
-exports.run = async(client: Client, message: Message) => {
+exports.run = async (client: Client, message: Message) => {
   let invitelink = await client.generateInvite(8)
   let embed = new RichEmbed()
     .setTitle(`Infoboard for ${client.user.username}`)

@@ -7,13 +7,13 @@ import { animeEmbed } from '../Utils/embeds'
 const awaitInput = require('../Utils/inputAway')
 
 exports.run = async (message: Message, args: Array<string>) => {
-  let animeName = args.join(' ')
   let api = new Mal(process.env.MAL_USERNAME, process.env.MAL_PASSWORD)
   if (args.length < 1) {
     let awaitName: Collection<Message, Message> = await awaitInput.run(message.channel, 8000, 1, (m: Message) => m.author.id === message.author.id, 'What anime?')
     if (!awaitName.first()) return
     animeName = awaitName.first().content
   }
+  let animeName = args.join(' ')
 
   api.anime.search(animeName)
     .then((result: any) => {

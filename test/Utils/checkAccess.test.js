@@ -5,7 +5,7 @@ describe('getCommandSettings', () => {
 
     })
 })
-describe('addDefaultdata', () => {
+describe('addDefaultData', () => {
 
 })
 describe('checkCommandPerms', () => {

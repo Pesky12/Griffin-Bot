@@ -1,4 +1,4 @@
-import { Client, Message } from 'discord.js';
+import { Client, Message } from 'discord.js'
 import randomgen from 'random-natural'
 
 exports.run = async (client: Client, message: Message, args: Array<string>) => {

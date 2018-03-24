@@ -1,7 +1,7 @@
 import { mute } from '../Utils/randomSelector'
-import { Client, Message } from 'discord.js';
+import { Message } from 'discord.js'
 
-module.exports.run = async(message: Message) => {
+module.exports.run = async (message: Message) => {
   let usersToMute = message.mentions.users
   if (usersToMute.size < 1) return message.channel.send('Can you mention them?')
   let messageArray: Array<string> = []

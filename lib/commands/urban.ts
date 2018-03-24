@@ -1,6 +1,6 @@
 import urban from 'relevant-urban'
 import { urbanEmbed } from '../Utils/embeds'
-import { Message } from 'discord.js';
+import { Message } from 'discord.js'
 
 exports.run = (message: Message, args: Array<string>) => {
   let toUrban = args.join(' ') || 'Avian'

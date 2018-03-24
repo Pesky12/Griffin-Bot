@@ -10,7 +10,7 @@ exports.handleLeft = (member) => {
   if (member.guild.channels.exists('name', 'general')) return member.guild.channels.find('name', 'general').send(userLeft(member))
 }
 
-exports.handleBanKick = async(guild, user, action) => {
+exports.handleBanKick = async (guild, user, action) => {
   console.log(guild)
   if (!guild.channels.exists('name', 'mod-log')) return
   let auditLog = await guild.fetchAuditLogs({ limit: 1 })

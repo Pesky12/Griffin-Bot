@@ -1,5 +1,5 @@
-import { Client, Message } from 'discord.js';
-exports.run = async(message: Message, args: Array<string>) => {
+import { Message } from 'discord.js'
+exports.run = async (message: Message, args: Array<string>) => {
   let messagecount: number = parseInt(args[0], undefined)
   if (messagecount <= 1 || messagecount > 100) return message.channel.send('I can\'t delete this many messages!')
   await message.delete()

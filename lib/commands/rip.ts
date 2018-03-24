@@ -7,7 +7,7 @@ exports.run = (client, message, args) => {
     Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then(font => {
       image.print(font, 143, 107, rip, 400)
       image.write(`../img/rip${message.author.id}.png`, () => {
-        message.channel.send({file: `../img/rip${message.author.id}.png`})
+        message.channel.send({ file: `../img/rip${message.author.id}.png` })
       })
     })
     if (err) { throw err }

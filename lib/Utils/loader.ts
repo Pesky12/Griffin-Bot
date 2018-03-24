@@ -1,5 +1,5 @@
 import * as fs from 'fs'
-import { Collection, Client } from 'discord.js';
+import { Collection, Client } from 'discord.js'
 
 export function loader (loadFolder: string, requiring: boolean, client: Client) {
   let collection = new Collection()
@@ -19,4 +19,3 @@ export function loader (loadFolder: string, requiring: boolean, client: Client) 
   })
   return collection
 }
-
