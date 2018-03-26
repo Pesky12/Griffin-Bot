@@ -5,10 +5,10 @@ const db = firestore()
 
 export async function getCommandSetting (guild: Guild, cmd: any) {
   return new Promise((resolve, reject) => {
-    const doc = db.collection('guilds').doc(guild.id).collection('commands').doc(cmd.help.name)
+    const doc = db.collection('guilds').doc(guild.id).collection('commands').doc(cmd.GlobalSettings.name)
     doc.get().then((snap: DocumentSnapshot) => {
       if (snap.exists) resolve(snap.data())
-      resolve(cmd.settings)
+      resolve(cmd.GuildDefaultSettings)
     }).catch(reject)
   })
 }
@@ -25,11 +25,11 @@ export async function getCommandSettings (guild: Guild) {
 }
 
 function addDefaultData (guild: Guild, cmd: any) {
-  return db.collection('guilds').doc(guild.id).collection('commands').doc(cmd.help.name).set(cmd.settings)
+  return db.collection('guilds').doc(guild.id).collection('commands').doc(cmd.GlobalSettings.name).set(cmd.GuildDefaultSettings)
 }
 
 export function checkCommandPerms (cmd: any, settings: any, message: Message) {
-  if (checkIfPm(message.channel, cmd.settings)) return true
+  if (checkIfPm(message.channel, cmd.GlobalSettings)) return true
   else if (settings.enabled && checkIfChannelPerms(message.member, settings)) return true
   else return false
 }
