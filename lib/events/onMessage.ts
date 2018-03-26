@@ -12,7 +12,7 @@ async function CommandHandler (client: Client, message: Message) {
 	  let settings = await getCommandSetting(message.guild, command)
     console.log(settings)
     if (checkCommandPerms(command, settings, message)) {
-      command.run(client, message, args)
+      command.run(message, args, client)
       console.log(`${message.author.tag} used ${commandName}`)
     }
   }

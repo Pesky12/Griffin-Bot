@@ -1,6 +1,7 @@
-import { Client } from 'discord.js'
+import { Message } from 'discord.js'
 
-exports.run = (client: Client, message: Message, args: Array<string>) => {
+exports.run = (_message: Message, _args: Array<string>) => {
+  return
 }
 
 exports.GlobalSettings = {

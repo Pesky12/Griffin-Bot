@@ -1,7 +1,7 @@
 import { Message } from 'discord.js'
 
 exports.run = (message: Message) => {
-  message.channel.send('**H E L L O  I  A M  A  B I R D**')
+  return message.channel.send('**H E L L O  I  A M  A  B I R D**')
 }
 
 exports.GlobalSettings = {

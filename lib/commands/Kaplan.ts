@@ -1,5 +1,6 @@
-exports.run = async (client, message, args) => {
-
+import { Message } from 'discord.js'
+exports.run = async (_message: Message, _args: Array<string>) => {
+  return
 }
 
 exports.GlobalSettings = {
