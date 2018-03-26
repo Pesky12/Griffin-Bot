@@ -1,4 +1,4 @@
-import urban from 'relevant-urban'
+import * as urban from 'relevant-urban'
 import { urbanEmbed } from '../Utils/embeds'
 import { Message } from 'discord.js'
 
