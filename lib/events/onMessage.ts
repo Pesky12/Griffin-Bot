@@ -1,5 +1,5 @@
 import { Client, Message } from 'discord.js'
-import { getCommandSettings, checkCommandPerms } from '../Utils/checkAccess'
+import { getCommandSettings, checkCommandPerms, getCommandSetting } from '../Utils/checkAccess'
 
 async function CommandHandler (client: Client, message: Message) {
   let prefix: any = process.env.PREFIX
@@ -9,8 +9,7 @@ async function CommandHandler (client: Client, message: Message) {
   let commandName = messageHandle[0].slice(prefix.length)
   let command = client.commands.get(commandName)
   if (command) {
-	  let settings: Promise<any>
-	  settings = await
+	  let settings = await getCommandSetting(message.guild, command)
     console.log(settings)
     if (checkCommandPerms(command, settings, message)) {
       command.run(client, message, args)
