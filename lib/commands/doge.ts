@@ -16,17 +16,16 @@ exports.run = (message: Message, args: Array<string>) => {
   }).catch(console.log)
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'crypto',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'crypto',
-  description: '',
-  longDescription: '',
-  usage: ''
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

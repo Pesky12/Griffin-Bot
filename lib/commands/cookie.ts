@@ -12,17 +12,16 @@ exports.run = (client: Client, message: Message) => {
   })
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'cookie',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'cookie',
-  description: '🍪 Gives mentioned users a cookie.',
-  longDescription: '',
-  usage: 'cookie [mention]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

@@ -1,6 +1,6 @@
-import { RichEmbed } from 'discord.js'
+import { RichEmbed, Client } from 'discord.js'
 
-exports.run = (client, config) => {
+exports.run = (client: Client) => {
   client.on('roleUpdate', (oldRole, newRole) => {
     if (oldRole.guild.channels.find('name', 'mod-log')) {
       let embed = new RichEmbed()
@@ -13,12 +13,7 @@ exports.run = (client, config) => {
   })
 }
 
-exports.help = {
-  name: 'Role Updated',
-  description: "Triggered when role's perms, name, etc has been chanaged"
-}
-
-exports.settings = {
-  enabled: false,
-  public: true
+exports.GlobalSettings = {
+  enabled: true,
+  name: 'translate'
 }

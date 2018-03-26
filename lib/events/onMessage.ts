@@ -1,5 +1,5 @@
 import { Client, Message } from 'discord.js'
-import { getCommandSettings, checkCommandPerms, getCommandSetting } from '../Utils/checkAccess'
+import { checkCommandPerms, getCommandSetting } from '../Utils/checkAccess'
 
 async function CommandHandler (client: Client, message: Message) {
   let prefix: any = process.env.PREFIX
@@ -24,12 +24,7 @@ exports.run = (client: Client) => {
   })
 }
 
-exports.help = {
-  name: 'DebugMessage',
-  description: 'Spam machine'
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: false
+  name: 'translate'
 }

@@ -18,17 +18,16 @@ exports.run = async (message: Message, args: Array<string>) => {
   })
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'booru',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'booru',
-  description: '🔍 Searches specified booru. (NSFW sites enabled/NSFW channels only).',
-  longDescription: '',
-  usage: 'booru [site] [tags] \nSupported sites and aliases (NSFW site list sfw are supported as well):\n e621.net | e6\ndanbooru.donmai.us | db\nrule34.xxx | r34\n rule34.paheal.net | paheal\n derpibooru.org | derp\n For better understanding of tag system read \'http://e926.net/help/tags\''
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

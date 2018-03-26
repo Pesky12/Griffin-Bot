@@ -1,9 +1,9 @@
-import { Client, Message } from 'discord.js'
+import { Message } from 'discord.js'
 import * as Jimp from 'jimp'
 
 import { awaitInput } from '../Utils/inputAway'
 
-exports.run = async (client: Client, message: Message, args: Array<string>) => {
+exports.run = async (message: Message, args: Array<string>) => {
   let achievURL = 'https://www.minecraftskinstealer.com/achievement/a.php?i=1&h=Achievement+get%21&t='
   let rip = args.join(' ')
 
@@ -25,17 +25,16 @@ exports.run = async (client: Client, message: Message, args: Array<string>) => {
   })
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: false,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'achieve',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'achieve',
-  description: '',
-  longDescription: '',
-  usage: ''
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

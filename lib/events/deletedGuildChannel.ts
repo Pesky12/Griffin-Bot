@@ -1,12 +1,12 @@
-import { RichEmbed } from 'discord.js'
+import { RichEmbed, Client } from 'discord.js'
 
-exports.run = (client, config) => {
+exports.run = (client: Client) => {
   client.on('channelDelete', async (channel) => {
     if (!channel.guild.channels.exists('name', 'mod-log')) return
     let auditLog = await channel.guild.fetchAuditLogs({ limit: 1, type: 12 })
     let auditLogEntry = auditLog.entries.first()
-    let oldValues = []
-    auditLogEntry.changes.forEach(change => {
+    let oldValues: string[] = []
+    auditLogEntry.changes.forEach((change: any) => {
       if (change.key === 'permission_overwrites') return
       oldValues.push(`${change.key}: ${change.old}`)
     })
@@ -20,12 +20,7 @@ exports.run = (client, config) => {
   })
 }
 
-exports.help = {
-  name: 'Channel Deleted',
-  description: 'Triggered when channel is deleted'
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true
+  name: 'translate'
 }

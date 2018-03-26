@@ -13,17 +13,16 @@ exports.run = (client: Client,message: Message, args: Array<string>) => {
   }
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: false,
-  PM: false,
-  owneronly: false,
-  permissionsRequired: ['MANAGE_GUILD']
+  pm: false,
+  name: 'settings',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'settings',
-  description: '',
-  longDescription: '',
-  usage: ''
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

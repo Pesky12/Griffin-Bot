@@ -1,16 +1,17 @@
 import { userLeft, userJoin } from '../Utils/randomSelector'
 import { modActionEmbed } from '../Utils/embeds'
+import { GuildMember, Client, User, Guild } from 'discord.js';
 
-exports.handleJoin = (member, client) => {
+exports.handleJoin = (member: GuildMember, client: Client) => {
   console.log(member)
   if (member.guild.channels.exists('name', 'general')) return member.guild.channels.find('name', 'general').send(userJoin(member))
 }
 
-exports.handleLeft = (member) => {
+exports.handleLeft = (member: GuildMember) => {
   if (member.guild.channels.exists('name', 'general')) return member.guild.channels.find('name', 'general').send(userLeft(member))
 }
 
-exports.handleBanKick = async (guild, user, action) => {
+exports.handleBanKick = async (guild: Guild, user: User, action: any) => {
   console.log(guild)
   if (!guild.channels.exists('name', 'mod-log')) return
   let auditLog = await guild.fetchAuditLogs({ limit: 1 })
@@ -18,19 +19,14 @@ exports.handleBanKick = async (guild, user, action) => {
   guild.channels.find('name', 'mod-log').send({ embed: modActionEmbed(action, auditLogEntry.executor, user, auditLogEntry.reason || 'There is none! ¯\\_(ツ)_/¯') })
 }
 
-exports.run = client => {
-  client.on('guildBanAdd', (guild, user) => { exports.handleBanKick(guild, user, 'Ban') })
-  client.on('guildBanRemove', (guild, user) => { exports.handleBanKick(guild, user, 'Unban') })
-  client.on('guildMemberRemove', (member) => { exports.handleLeft(member) })
-  client.on('guildMemberAdd', (member) => { exports.handleJoin(member) })
+exports.run = (client: Client) => {
+  client.on('guildBanAdd', (guild: Guild, user: User) => { exports.handleBanKick(guild, user, 'Ban') })
+  client.on('guildBanRemove', (guild: Guild, user: User) => { exports.handleBanKick(guild, user, 'Unban') })
+  client.on('guildMemberRemove', (member: GuildMember) => { exports.handleLeft(member) })
+  client.on('guildMemberAdd', (member: GuildMember) => { exports.handleJoin(member) })
 }
 
-exports.help = {
-  name: 'Handle guild member left',
-  description: ''
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: false
+  name: 'translate'
 }

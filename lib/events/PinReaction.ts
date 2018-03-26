@@ -1,16 +1,12 @@
-exports.run = (client, config) => {
-  let emoji = '📌'
-  client.on('messageReactionAdd', (messageReaction, executer) => {
+import { Client } from 'discord.js'
+
+exports.run = (client: Client) => {
+  client.on('messageReactionAdd', (messageReaction) => {
     console.log(messageReaction)
   })
 }
 
-exports.help = {
-  name: 'Role created',
-  description: 'Triggered when role is created'
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true
+  name: 'translate'
 }

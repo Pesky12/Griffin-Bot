@@ -1,12 +1,14 @@
 import { unmute } from '../Utils/randomSelector'
-import { Message } from 'discord.js'
+import { Message, GuildChannel } from 'discord.js'
 
 exports.run = async (message: Message) => {
+  if (!(message.channel instanceof GuildChannel)) return
+  const channel: GuildChannel = message.channel
   let users = message.mentions.users
   if (users.size < 1) return message.channel.send('Can you mention them?')
   let messageArray: Array<string> = []
   users.map(userToMute => {
-    message.channel.overwritePermissions(userToMute, {
+    channel.overwritePermissions(userToMute, {
       SEND_MESSAGES: true,
       ADD_REACTIONS: true
     })
@@ -16,17 +18,16 @@ exports.run = async (message: Message) => {
   return 1
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: false,
-  owneronly: false,
-  permissionsRequired: ['MANAGE_MESSAGES']
+  pm: false,
+  name: 'unmute',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'unmute',
-  description: '🐵 Unmutes a mentioned user in the given channel.',
-  longDescription: '',
-  usage: 'warn [mention] [reason]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

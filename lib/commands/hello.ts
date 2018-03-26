@@ -4,17 +4,16 @@ exports.run = (message: Message) => {
   message.channel.send('**H E L L O  I  A M  A  B I R D**')
 }
 
-exports.settings = {
-  enabled: true,
-  public: false,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+exports.GlobalSettings = {
+  enabled: false,
+  pm: false,
+  name: 'hello',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'hello',
-  description: '👋 Hallo',
-  longDescription: '',
-  usage: 'hello'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

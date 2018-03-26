@@ -6,17 +6,16 @@ module.exports.run = (client: Client, message: Message, args: Array<string>) => 
   message.channel.send({ embed: profilePicEmbed(user) })
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'profilepic',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'profilepic',
-  description: '🖨 Steals a profile pic.',
-  longDescription: '',
-  usage: 'profilepic [mention]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

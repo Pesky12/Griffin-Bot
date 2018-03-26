@@ -2,17 +2,16 @@ exports.run = async(client, message) => {
 
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: false,
-  public: true,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'kot',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'cat',
-  description: '😺Tells you a cat fact.',
-  longDescription: '',
-  usage: 'cat'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

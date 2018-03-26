@@ -15,17 +15,16 @@ exports.run = (message: Message, args: Array<string>) => {
   message.channel.send(messageArray)
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: false,
-  owneronly: false,
-  permissionsRequired: ['MANAGE_MESSAGES']
+  pm: false,
+  name: 'warn',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'warn',
-  description: '🛑 Issues a warning to the mentioned user.',
-  longDescription: '',
-  usage: 'warn [mention] [reason]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

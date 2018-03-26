@@ -1,6 +1,6 @@
-import { RichEmbed } from 'discord.js'
+import { RichEmbed, Client } from 'discord.js'
 
-exports.run = (client, config) => {
+exports.run = (client: Client) => {
   client.on('roleCreate', (role) => {
     if (role.guild.channels.find('name', 'mod-log')) {
       let embed = new RichEmbed()
@@ -14,12 +14,7 @@ exports.run = (client, config) => {
   })
 }
 
-exports.help = {
-  name: 'Role created',
-  description: 'Triggered when role is created'
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true
+  name: 'translate'
 }

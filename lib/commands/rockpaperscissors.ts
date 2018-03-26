@@ -1,4 +1,5 @@
-exports.run = (_client, message, args) => {
+import { Message } from 'discord.js'
+exports.run = (message: Message, args: Array<string>) => {
   let userChoice = args.join(' ')
 
   let randomNumber: number = Math.random()
@@ -10,19 +11,18 @@ exports.run = (_client, message, args) => {
   message.channel.send(`I choose ${computerChoice}!!\n${choice}`)
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'rps',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'rps',
-  description: '👊 Rock, ✋Paper, ✌Scissors!',
-  longDescription: '',
-  usage: 'rps [👊 Rock | ✋Paper | ✌Scissors!]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }
 function compare (choice1: string, choice2: string) {
   if (choice1 === choice2) {

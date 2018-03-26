@@ -1,6 +1,7 @@
-import Jimp from 'jimp'
+import * as Jimp from 'jimp'
+import { Message } from 'discord.js'
 
-exports.run = (client, message, args) => {
+exports.run = (message: Message, args: Array<String>) => {
   message.channel.startTyping()
   let rip = args.join(' ')
   Jimp.read('http://tombgen.appspot.com/images/tombstone.png', (err, image) => {
@@ -15,17 +16,16 @@ exports.run = (client, message, args) => {
   message.channel.stopTyping()
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'rip',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'rip',
-  description: '🗿 Creates a tombstone with a defined text.',
-  longDescription: '',
-  usage: 'rip [text]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

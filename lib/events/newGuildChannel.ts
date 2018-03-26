@@ -1,6 +1,6 @@
-import { RichEmbed } from 'discord.js'
+import { RichEmbed, Client } from 'discord.js'
 
-exports.run = (client, config) => {
+exports.run = (client: Client) => {
   client.on('channelCreate', (channel) => {
     if (channel.type === 'dm') return
     if (channel.guild.channels.find('name', 'mod-log')) {
@@ -16,12 +16,7 @@ exports.run = (client, config) => {
   })
 }
 
-exports.help = {
-  name: 'Channel added',
-  description: 'Triggered when a new channel is added'
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true
+  name: 'translate'
 }

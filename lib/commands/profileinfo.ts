@@ -6,17 +6,16 @@ module.exports.run = async (client: Client, message: Message, args: Array<string
   message.channel.send({ embed: userInfoEmbed(user) })
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'profile',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'profile',
-  description: '🎫 Shows information about mentioned user.',
-  longDescription: '',
-  usage: 'profile {mention/userID}'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

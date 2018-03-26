@@ -10,17 +10,16 @@ exports.run = (message: Message, args: Array<string>) => {
   })
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: false,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'urban',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'urban',
-  description: '🔧 Searches for a word/sentence on "Urban Dictionary"',
-  longDescription: '',
-  usage: 'urban [word | sentence]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

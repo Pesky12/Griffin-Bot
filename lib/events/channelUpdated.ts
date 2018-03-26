@@ -24,12 +24,7 @@ exports.run = (client: Client) => {
   })
 }
 
-exports.help = {
-  name: 'Channel Updated',
-  description: "Triggered when channel's perms, name, etc has been chanaged"
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true
+  name: 'translate'
 }

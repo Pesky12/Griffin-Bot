@@ -6,14 +6,9 @@ exports.run = (client: Client) => {
     if (!client.channels.exists('id', process.env.LOG_CHANNEL)) return
     client.channels.get(process.env.LOG_CHANNEL).send({ embed: infoEmbed('Discord Warn', warn, '#00000') })
   })
+)}
 
-  exports.help = {
-    name: 'DebugMessage',
-    description: 'Spam machine'
-  }
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: false
+  name: 'translate'
 }

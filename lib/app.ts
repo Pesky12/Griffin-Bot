@@ -1,5 +1,6 @@
-import * as firebase from 'firebase-admin'
 import { Client } from 'discord.js'
+import * as firebase from 'firebase-admin'
+
 import { loader } from './Utils/loader'
 
 const client = new Client()

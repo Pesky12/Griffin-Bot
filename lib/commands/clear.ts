@@ -7,17 +7,16 @@ exports.run = async (message: Message, args: Array<string>) => {
   await message.channel.send(`:ok_hand: Deleted ${messagecount} messages`).then(botmsg => botmsg.delete(5000))
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  PM: false,
-  owneronly: false,
-  permissionsRequired: ['MANAGE_MESSAGES']
+  pm: false,
+  name: 'clear',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'clear',
-  description: '🔧 Clears a defined number of messages.',
-  longDescription: '',
-  usage: 'purge [number]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }

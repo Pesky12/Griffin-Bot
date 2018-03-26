@@ -1,18 +1,24 @@
 import { PermissionResolvable } from 'discord.js'
 
-export interface ModuleSettings {
-  name: string
-  description: string
+export type GlobalCommandSettings = {
   enabled: boolean
-}
-
-export interface CommandSetting extends ModuleSettings {
-  usage: string
   pm: boolean
-  permsRequired: Array<PermissionResolvable>
+  name: string
+  shortDesc: string
+  longDesc: string
+  usage: string
 }
 
-export interface EventSetting extends ModuleSettings {
-  public: boolean
+export type defaultCommandSettings = {
+  perms: Array<PermissionResolvable>
 }
 
+export type GuildCommandSetting = {
+  enabled: boolean
+  perms: Array<PermissionResolvable>
+}
+
+export type EventSettings = {
+  enabled: boolean
+  name: string
+}

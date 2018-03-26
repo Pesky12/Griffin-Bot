@@ -1,6 +1,6 @@
-import { RichEmbed } from 'discord.js'
+import { RichEmbed, Client } from 'discord.js'
 
-exports.run = (client, config) => {
+exports.run = (client: Client) => {
   client.on('emojiCreate', (emoji) => {
     if (emoji.guild.channels.find('name', 'mod-log')) {
       let embed = new RichEmbed()
@@ -15,12 +15,11 @@ exports.run = (client, config) => {
   })
 }
 
-exports.help = {
-  name: 'New emoji',
-  description: 'Triggered when emoji is added'
-}
-
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true
+  pm: false,
+  name: 'translate',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }

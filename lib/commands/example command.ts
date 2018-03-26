@@ -1,18 +1,18 @@
-exports.run = (client, message, args, config) => {
+import { Client } from 'discord.js'
 
+exports.run = (client: Client, message: Message, args: Array<string>) => {
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: false,
-  public: false,
-  PM: false,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: '',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: '',
-  description: '',
-  longDescription: '',
-  usage: ''
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }
