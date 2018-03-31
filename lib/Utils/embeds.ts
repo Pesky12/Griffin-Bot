@@ -17,14 +17,15 @@ export function infoEmbed (title, desc, color) {
     .setColor(color)
 }
 
-export function booruEmbed (booruImage) {
-  return new RichEmbed()
+export function booruEmbed (booruImage: any) {
+  let booruEmb = new RichEmbed()
     .setTitle('Booru search')
-    .addField('Artist', booruImage.artist.join(', '))
-    .addField('Score', booruImage.score, true)
+    .addField('Artist', booruImage.artist.join('\n'), true)
     .addField('Rating', booruImage.rating, true)
-    .addField('Description', booruImage.description || 'None', true)
+    .setFooter('Score', booruImage.score)
     .setImage(booruImage.file_url)
+  // if (booruImage.description) booruEmb.addField('Description', booruImage.description || 'None', true)
+  return booruEmbed
 }
 
 export function smallEmbedThumbnail (title, desc, thumbnail) {
