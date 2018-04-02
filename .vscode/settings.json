@@ -1,4 +1,12 @@
 {
     "typescript.tsdk": "./node_modules/typescript/lib",
-    "discord.enabled": true
+    "discord.enabled": true,
+    "files.autoSave": "onFocusChange",
+    "editor.fontSize": 14,
+    "editor.tabSize": 2,
+    "editor.cursorStyle": "line-thin",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.insertSpaces": true,
+    "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+    "files.insertFinalNewline": true
 }
