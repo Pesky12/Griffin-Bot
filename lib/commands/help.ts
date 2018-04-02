@@ -1,8 +1,7 @@
 
 import { helpDescEmbed } from '../Utils/embeds'
-import { checkAccess } from '../Utils/checkAccess'
 
-exports.run = async (client, message, args, config) => {
+exports.run = async (message, args, client) => {
   let longest = Array.from(client.commands.keys()).reduce((long, str) => Math.max(long, str.length), 0)
   let helpList = []
   let command = client.commands.get(args[0])
@@ -11,29 +10,22 @@ exports.run = async (client, message, args, config) => {
     return message.channel.send({ embed: helpDescEmbed(command) })
   }
   let imustpromisecuzjs = client.commands.map(c => {
-    if (args[0] !== 'all') {
-      let access = checkAccess(message, c)
-      if (!access) return
-    } else {
-      if (!c.settings.public || c.settings.owneronly) return
-    }
-    helpList.push(`{ ${process.env.PREFIX}${c.help.name}${' '.repeat(longest - c.help.name.length)} : '${c.help.description}' }`)
+    helpList.push(`{ ${process.env.PREFIX}${c.GlobalSettings.name}${' '.repeat(longest - c.GlobalSettings.name.length)} : '${c.GlobalSettings.shortDesc}' }`)
   })
   await Promise.all(imustpromisecuzjs)
   message.channel.send(`Here is the list of commands you can use ❤\nTo see all the commands use ${process.env.PREFIX}help all\n${helpList.join('\n')}`, { code: 'css' })
 }
 
-exports.settings = {
+exports.GlobalSettings = {
   enabled: true,
-  public: true,
-  pm: true,
-  owneronly: false,
-  permissionsRequired: []
+  pm: false,
+  name: 'help',
+  shortDesc: '',
+  longDesc: '',
+  usage: ''
 }
 
-exports.help = {
-  name: 'help',
-  description: '❔ It will show you this window!!',
-  longDescription: '',
-  usage: 'help [command]'
+exports.GuildDefaultSettings = {
+  enabled: true,
+  perms: []
 }
