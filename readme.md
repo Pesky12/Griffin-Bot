@@ -21,7 +21,7 @@ Setup .env file from the .env.example and run `npm start`
 PREFIX - Default prefix for running commands
 DISCORD_TOKEN - Discord token
 LOG_CHANNEL - Logging channel ID that will be used to report the bot status
-CLEVER_BOT_TOKEN - [Cleverbot](https://www.cleverbot.com/api/) API key
+CLEVER_BOT_TOKEN - Cleverbot (https://www.cleverbot.com/api/) API key
 OWNER_ID - Discord ID of you (or the owner)
 FRIEND_ID - Discord ID of your friend or special someone
 ```
