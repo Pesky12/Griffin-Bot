@@ -1,4 +1,5 @@
-import { Client, Message } from 'discord.js'
+import { Message } from 'discord.js'
+// noinspection TypeScriptCheckImport
 import randomgen from 'random-natural'
 
 exports.run = async (message: Message, args: Array<string>) => {
@@ -12,10 +13,5 @@ exports.GlobalSettings = {
   name: 'rps',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

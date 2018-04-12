@@ -22,10 +22,5 @@ exports.GlobalSettings = {
   name: 'rip',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

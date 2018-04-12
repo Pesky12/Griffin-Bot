@@ -21,10 +21,5 @@ exports.GlobalSettings = {
   name: 'cl',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

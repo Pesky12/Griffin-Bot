@@ -7,10 +7,19 @@ export type GlobalCommandSettings = {
   shortDesc: string
   longDesc: string
   usage: string
+  perms: Array<PermissionResolvable>
 }
 
-export type defaultCommandSettings = {
-  perms: Array<PermissionResolvable>
+export type Event = {
+  run: void
+  settings: EventSettings
+  eventSettings: Array<any>
+}
+
+export type Command = {
+  run: void
+  settings: GlobalCommandSettings
+  commandSettings: Array<any>
 }
 
 export type GuildCommandSetting = {

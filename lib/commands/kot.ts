@@ -1,5 +1,5 @@
-exports.run = async(client, message) => {
-
+exports.run = async () => {
+  return
 }
 
 exports.GlobalSettings = {
@@ -8,10 +8,5 @@ exports.GlobalSettings = {
   name: 'kot',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

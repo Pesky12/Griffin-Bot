@@ -1,6 +1,7 @@
 import { Message, MessageMentions } from 'discord.js'
 import { botCant } from '../Utils/randomSelector'
 import { modActionEmbed } from '../Utils/embeds'
+
 exports.run = (message: Message, args: Array<string>) => {
   let usersToBan: MessageMentions = message.mentions
   let reason = args.slice(usersToBan.users.array().length).join(' ') || 'There is none! ¯\\_(ツ)_/¯'
@@ -21,10 +22,5 @@ exports.GlobalSettings = {
   name: 'kick',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['KICK_MEMBERS']
 }

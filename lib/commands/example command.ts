@@ -1,6 +1,4 @@
-import { Message } from 'discord.js'
-
-exports.run = (_message: Message, _args: Array<string>) => {
+exports.run = () => {
   return
 }
 
@@ -10,10 +8,5 @@ exports.GlobalSettings = {
   name: '',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

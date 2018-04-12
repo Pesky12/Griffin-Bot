@@ -33,10 +33,5 @@ exports.GlobalSettings = {
   name: 'anime',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

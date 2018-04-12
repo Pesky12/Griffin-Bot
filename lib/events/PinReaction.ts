@@ -1,8 +1,8 @@
 import { Client } from 'discord.js'
 
 exports.run = (client: Client) => {
-  client.on('messageReactionAdd', (messageReaction) => {
-    console.log(messageReaction)
+  client.on('messageReactionAdd', (msg) => {
+    console.log(msg.emoji.name)
   })
 }
 

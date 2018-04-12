@@ -1,4 +1,3 @@
-
 import { helpDescEmbed } from '../Utils/embeds'
 
 exports.run = async (message, args, client) => {
@@ -22,10 +21,5 @@ exports.GlobalSettings = {
   name: 'help',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

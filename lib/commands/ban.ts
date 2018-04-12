@@ -21,10 +21,5 @@ exports.GlobalSettings = {
   name: 'ban',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['BAN_MEMBERS']
 }

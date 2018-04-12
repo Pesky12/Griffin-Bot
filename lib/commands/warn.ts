@@ -21,10 +21,5 @@ exports.GlobalSettings = {
   name: 'warn',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['MANAGE_MESSAGES']
 }

@@ -1,4 +1,5 @@
-import { Message, Client } from 'discord.js'
+import { Client, Message } from 'discord.js'
+
 exports.run = (_message: Message, _args: Array<string>, _Client: Client) => {
   let receivers = _message.mentions.users
   if (receivers.size < 1) _message.channel.send('Who is the lucky one i should send the :cookie: to?')
@@ -18,10 +19,5 @@ exports.GlobalSettings = {
   name: 'cookie',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

@@ -1,4 +1,5 @@
 import { Message } from 'discord.js'
+
 exports.run = (message: Message, args: Array<string>) => {
   let userChoice = args.join(' ')
 
@@ -17,13 +18,9 @@ exports.GlobalSettings = {
   name: 'rps',
   shortDesc: '',
   longDesc: '',
-  usage: ''
+  usage: ['']
 }
 
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
-}
 function compare (choice1: string, choice2: string) {
   if (choice1 === choice2) {
     return 'Looks like we tied!'

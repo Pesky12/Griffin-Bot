@@ -16,10 +16,5 @@ exports.GlobalSettings = {
   name: 'urban',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }

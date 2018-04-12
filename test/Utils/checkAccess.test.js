@@ -1,4 +1,5 @@
 import { expect } from 'mocha'
+import { describe } from 'nyc/lib/commands/instrument'
 
 describe('getCommandSettings', () => {
     it('Should return an object', () => {

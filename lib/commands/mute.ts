@@ -1,5 +1,5 @@
 import { mute } from '../Utils/randomSelector'
-import { Message, GuildChannel } from 'discord.js'
+import { GuildChannel, Message } from 'discord.js'
 
 module.exports.run = async (message: Message) => {
   if (!(message.channel instanceof GuildChannel)) return
@@ -23,10 +23,5 @@ exports.GlobalSettings = {
   name: 'mute',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['MANAGE_MESSAGES']
 }

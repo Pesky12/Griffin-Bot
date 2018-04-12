@@ -18,8 +18,8 @@ exports.run = async (_message: Message, _args: Array<string>) => {
   Jimp.read(achievURL, (err, image: Jimp) => {
     Jimp.loadFont(Jimp.FONT_SANS_16_WHITE).then((font: Jimp) => {
       image.print(font, 59, 32, rip)
-      image.write(`../img/achiv${_message.author.id}.png`, () => {
-        _message.channel.send({ file: `../img/achiv${_message.author.id}.png` })
+      image.write(`../img/achiev${_message.author.id}.png`, () => {
+        _message.channel.send({file: `../img/achiev${_message.author.id}.png`})
         _message.channel.stopTyping()
       })
     })
@@ -33,10 +33,6 @@ exports.GlobalSettings = {
   name: 'achieve',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['']
 }

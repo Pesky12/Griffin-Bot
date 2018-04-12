@@ -1,5 +1,5 @@
-exports.run = (client, message, args) => {
-
+exports.run = () => {
+  return
 }
 
 exports.GlobalSettings = {
@@ -8,10 +8,5 @@ exports.GlobalSettings = {
   name: 'translate',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: ['']
 }
