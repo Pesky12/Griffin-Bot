@@ -10,6 +10,8 @@ firebase.initializeApp({
   databaseURL: `https://${process.env.DATABASE_URL}.firebaseio.com/`
 })
 
+console.log(`${__dirname}`)
+
 client.commands = loader(`${__dirname}/commands/`, false, client)
 client.events = loader(`${__dirname}/events/`, true, client)
 

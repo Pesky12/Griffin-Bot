@@ -2,7 +2,7 @@ exports.run = () => {
   return
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: false,
   pm: false,
   name: '',

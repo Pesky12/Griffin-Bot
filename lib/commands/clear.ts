@@ -10,7 +10,7 @@ exports.run = (_message: Message, _args: Array<string>) => {
   _message.channel.send(`:ok_hand: Deleted ${messageCount} messages`).then(botmsg => botmsg.delete(5000))
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'clear',

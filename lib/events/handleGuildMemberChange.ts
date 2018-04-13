@@ -26,7 +26,7 @@ exports.run = (client: Client) => {
   client.on('guildMemberAdd', (member: GuildMember) => { exports.handleJoin(member) })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   name: 'translate'
 }

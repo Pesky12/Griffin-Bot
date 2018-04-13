@@ -18,7 +18,7 @@ exports.run = async (message: Message) => {
   return 1
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'unmute',

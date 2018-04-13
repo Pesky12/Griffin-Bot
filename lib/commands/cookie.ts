@@ -13,7 +13,7 @@ exports.run = (_message: Message, _args: Array<string>, _Client: Client) => {
   })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'cookie',

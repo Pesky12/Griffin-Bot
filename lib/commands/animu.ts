@@ -27,7 +27,7 @@ exports.run = async (_message: Message, _args: Array<string>) => {
     })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'anime',

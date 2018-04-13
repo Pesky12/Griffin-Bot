@@ -6,7 +6,7 @@ module.exports.run = async (client: Client, message: Message, args: Array<string
   message.channel.send({ embed: userInfoEmbed(user) })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'profile',

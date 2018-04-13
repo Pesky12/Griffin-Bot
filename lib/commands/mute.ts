@@ -17,7 +17,7 @@ module.exports.run = async (message: Message) => {
   message.channel.send(messageArray)
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'mute',

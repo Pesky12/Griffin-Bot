@@ -7,7 +7,7 @@ exports.run = async (message: Message, args: Array<string>) => {
   message.channel.send('🎲 Rolling the dice!').then(msg => msg.edit(`🎲 You rolled ${gen}`))
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'rps',

@@ -16,7 +16,7 @@ exports.run = (message: Message, args: Array<String>) => {
   message.channel.stopTyping()
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'rip',

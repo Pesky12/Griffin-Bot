@@ -12,7 +12,7 @@ exports.run = (message: Message, args: Array<string>) => {
   message.channel.send(`I choose ${computerChoice}!!\n${choice}`)
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'rps',

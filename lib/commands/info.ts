@@ -17,7 +17,7 @@ exports.run = async (_message: Message, _args: Array<string>, _Client: Client) =
   console.log(embed)
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'info',

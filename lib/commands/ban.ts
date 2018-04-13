@@ -15,7 +15,7 @@ exports.run = async (_message: Message, _args: Array<string>) => {
   _message.channel.send(messageArray)
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'ban',

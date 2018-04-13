@@ -6,7 +6,7 @@ exports.run = (message: Message) => {
   })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'ping',

@@ -10,7 +10,7 @@ exports.run = (message: Message, args: Array<string>) => {
   })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'urban',
