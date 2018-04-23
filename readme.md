@@ -1,4 +1,4 @@
-![Logo of the project](./images/logo.sample.png)
+![Logo of the project](./docs/icon.png)
 
 # Name of the project
 > Additional information or tag line
