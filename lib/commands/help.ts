@@ -1,4 +1,4 @@
-import { GuildCommandSetting } from './../Utils/moduleClass';
+import { GuildCommandSetting } from './../Utils/moduleClass'
 import { helpDescEmbed } from '../Utils/embeds'
 
 exports.run = async (message, args, client) => {

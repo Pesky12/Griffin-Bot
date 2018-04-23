@@ -1,5 +1,4 @@
 import { Client } from 'discord.js'
-import * as firebase from 'firebase-admin'
 
 import { loader } from './Utils/loader'
 

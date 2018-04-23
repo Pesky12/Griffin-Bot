@@ -1,5 +1,5 @@
-import { Command } from './moduleClass';
-import { Settings } from 'http2';
+import { Command } from './moduleClass'
+import { Settings } from 'http2'
 import * as fs from 'fs'
 import { Collection, Client } from 'discord.js'
 

@@ -1,4 +1,4 @@
-import { GuildCommandSetting } from './moduleClass';
+import { GuildCommandSetting } from './moduleClass'
 import { PermissionResolvable } from 'discord.js'
 
 export type GlobalCommandSettings = {
