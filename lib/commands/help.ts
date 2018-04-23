@@ -1,3 +1,4 @@
+import { GuildCommandSetting } from './../Utils/moduleClass';
 import { helpDescEmbed } from '../Utils/embeds'
 
 exports.run = async (message, args, client) => {
@@ -22,4 +23,9 @@ exports.settings = {
   shortDesc: '',
   longDesc: '',
   usage: ['']
+}
+
+exports.guildCommandSetting = {
+  enable: true,
+  perms: ['']
 }

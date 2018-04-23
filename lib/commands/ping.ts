@@ -8,7 +8,7 @@ exports.run = (message: Message) => {
 
 exports.settings = {
   enabled: true,
-  pm: false,
+  pm: true,
   name: 'ping',
   shortDesc: '',
   longDesc: '',

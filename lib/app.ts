@@ -5,11 +5,6 @@ import { loader } from './Utils/loader'
 
 const client = new Client()
 
-firebase.initializeApp({
-  credential: firebase.credential.cert(require('../firebase.json')),
-  databaseURL: `https://${process.env.DATABASE_URL}.firebaseio.com/`
-})
-
 console.log(`${__dirname}`)
 
 client.commands = loader(`${__dirname}/commands/`, false, client)

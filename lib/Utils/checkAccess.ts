@@ -1,49 +1,54 @@
-import { DocumentSnapshot } from '@google-cloud/firestore'
-import { Channel, DMChannel, GroupDMChannel, Guild, GuildMember, Message } from 'discord.js'
-import { firestore } from 'firebase-admin'
+import { Channel, Client, DMChannel, GroupDMChannel, Guild, GuildMember } from 'discord.js'
+import { MongoClient } from 'mongodb'
+
 import { Command, GlobalCommandSettings, GuildCommandSetting } from './moduleClass'
 
-const db = firestore()
+const db = MongoClient
 
-export async function getCommandSetting (guild: Guild, cmd: Command) {
+export function getGuildSettings (guild: Guild, _client: Client): Promise<any> {
   return new Promise((resolve, reject) => {
-    const doc = db.collection('guilds').doc(guild.id).collection('commands').doc(cmd.settings.name)
-    doc.get().then((snap: DocumentSnapshot) => {
-      if (snap.exists) resolve(snap.data())
-      resolve(addDefaultData(guild, cmd))
-    }).catch(reject)
+    db.connect(process.env.MONGO_URI || '', (err, client) => {
+      if (err) reject(err)
+      const collection = client.db('Chloe').collection('Guilds')
+      collection.findOne({ _id: guild.id }).then((data: GuildSettings) => {
+        if (data) {
+          console.log('settings')
+          resolve(data)
+        } else {
+          generateGuild(guild, _client).then(data => {
+            collection.insertOne(data)
+            console.log(data)
+            resolve(data)
+          })
+        }
+      })
+    })
   })
 }
 
-// export async function getCommandSettings (guild: Guild) {
-//   return new Promise((resolve, reject) => {
-//     let dataCollection: Array<DocumentData>
-//     const doc = db.collection('guilds').doc(guild.id).collection('commands')
-//     doc.get().then(snap => {
-//       snap.forEach(data => { dataCollection.push(data.data()) })
-//       resolve(dataCollection)
-//     }).catch(reject)
-//   })
-// }
+function generateGuild (guild: Guild, _client: Client) {
+  return new Promise((resolve) => {
+    let data = {
+      _id: guild.id,
+      prefix: process.env.PREFIX,
+      commands: _client.commands.map((cmd: Command) => {
+        return {
+          name: cmd.settings.name,
+          enabled: true,
+          perms: cmd.settings.perms
+        }
+      })
+    }
+    resolve(data)
+  })
+}
 
-function addDefaultData (guild: Guild, cmd: Command) {
-  let defaultData = {
-    enabled: true,
-    perms: cmd.settings.perms
+export function checkAccess (settings: GuildCommandSetting, member: GuildMember) {
+  if (settings.enabled) {
+    return member.hasPermission(settings.perms, false, true, true)
   }
-  db.collection('guilds').doc(guild.id).collection('commands').doc(cmd.settings.name).set(defaultData)
-  return defaultData
 }
 
-export function checkCommandPerms (cmd: Command, settings: GuildCommandSetting, message: Message) {
-  if (checkIfPm(message.channel, cmd.settings)) return true
-  else return settings.enabled && checkIfChannelPerms(message.member, settings)
-}
-
-function checkIfChannelPerms (member: GuildMember, settings: GuildCommandSetting) {
-  return member.hasPermission(settings.perms, false, true, true)
-}
-
-function checkIfPm (channel: Channel, settings: GlobalCommandSettings) {
+export function checkIfPm (channel: Channel, settings: GlobalCommandSettings) {
   return (channel instanceof DMChannel || channel instanceof GroupDMChannel) && settings.pm
 }

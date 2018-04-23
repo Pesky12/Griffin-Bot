@@ -11,7 +11,7 @@ exports.run = async (_message: Message, _args: Array<string>) => {
   const booruName = _args[0]
   const tags = _args.slice(1)
   console.log(tags + booruName)
-  booru.search(booruName, tags, { limit: 1, random: true })
+  booru.search(booruName, tags, { limit: 10, random: true })
   .catch((err: Error) => {
     if (!err.message.startsWith('Site not supported')) return console.error(err)
     return _message.channel.send('Not support ')
@@ -19,7 +19,7 @@ exports.run = async (_message: Message, _args: Array<string>) => {
   .then(booru.commonfy)
   .then((res: any) => {
     console.log(res)
-    _message.channel.send({ embed: booruEmbed(res[0]) })
+    _message.channel.send({ embed: booruEmbed(res[0]) }).then(msg => { msg.react('😍') })
   })
 }
 
