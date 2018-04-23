@@ -2,13 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Current project",
+            "preLaunchTask": "build",
+            "name": "Build and run",
             "type": "node",
             "request": "launch",
-            "args": ["-r", "ts-node/register", "-r", "dotenv/config", "${workspaceRoot}/lib/app.ts"],
-            "cwd": "${workspaceRoot}",
+            "envFile": "${workspaceFolder}/.env",
+            "args": ["${workspaceRoot}/dist/app"],
+            "cwd": "${workspaceRoot}/dist",
             "protocol": "inspector",
             "internalConsoleOptions": "openOnSessionStart"
         }
-    ]
+    ],
 }
