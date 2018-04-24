@@ -1,0 +1,13 @@
+language: node_js
+
+node_js:
+- "stable"
+
+install:
+  - npm uninstall typescript --no-save
+  - npm uninstall tslint --no-save
+  - npm install
+
+cache:
+  directories:
+    - node_modules
