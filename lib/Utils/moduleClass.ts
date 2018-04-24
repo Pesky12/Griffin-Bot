@@ -8,7 +8,7 @@ export type GlobalCommandSettings = {
   shortDesc: string
   longDesc: string
   usage: string
-  perms: Array<any>
+  perms: Array<PermissionResolvable>
 }
 
 export type Event = {

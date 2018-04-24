@@ -19,5 +19,6 @@ exports.settings = {
   name: 'cookie',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: null
 }

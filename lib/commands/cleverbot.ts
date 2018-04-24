@@ -21,5 +21,6 @@ exports.settings = {
   name: 'cl',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: [''],
+  perms: null
 }

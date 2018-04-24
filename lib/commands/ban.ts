@@ -21,5 +21,6 @@ exports.settings = {
   name: 'ban',
   shortDesc: '',
   longDesc: '',
+  usage: '',
   perms: ['BAN_MEMBERS']
 }

@@ -22,5 +22,6 @@ exports.settings = {
   name: 'crypto',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: null
 }

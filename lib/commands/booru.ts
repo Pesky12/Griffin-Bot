@@ -25,9 +25,10 @@ exports.run = async (_message: Message, _args: Array<string>) => {
 
 exports.settings = {
   enabled: true,
-  pm: false,
+  pm: true,
   name: 'booru',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: null
 }

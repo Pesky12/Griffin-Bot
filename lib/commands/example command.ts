@@ -8,5 +8,6 @@ exports.settings = {
   name: '',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: null
 }
