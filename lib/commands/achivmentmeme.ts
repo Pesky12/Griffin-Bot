@@ -34,5 +34,5 @@ exports.settings = {
   shortDesc: '',
   longDesc: '',
   usage: '',
-  perms: null
+  perms: ['SEND_MESSAGES']
 }

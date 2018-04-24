@@ -16,5 +16,6 @@ exports.settings = {
   name: 'urban',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

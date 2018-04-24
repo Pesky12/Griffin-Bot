@@ -22,5 +22,6 @@ exports.settings = {
   name: 'kick',
   shortDesc: '',
   longDesc: '',
-  usage: ['KICK_MEMBERS']
+  usage: '',
+  perms: ['SEND_MESSAGES', 'KICK_MEMBERS']
 }

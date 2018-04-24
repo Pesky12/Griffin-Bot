@@ -22,5 +22,5 @@ exports.settings = {
   shortDesc: '',
   longDesc: '',
   usage: '',
-  perms: ['BAN_MEMBERS']
+  perms: ['SEND_MESSAGES', 'BAN_MEMBERS']
 }

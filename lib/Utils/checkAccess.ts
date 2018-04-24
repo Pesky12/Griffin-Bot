@@ -46,9 +46,11 @@ function generateGuild (guild: Guild, _client: Client) {
 export function checkAccess (settings: GuildCommandSetting, member: GuildMember) {
   if (settings.enabled) {
     return member.hasPermission(settings.perms, false, true, true)
+  } else {
+    return false
   }
 }
 
 export function checkIfPm (channel: Channel, settings: GlobalCommandSettings) {
-  return (channel instanceof DMChannel || channel instanceof GroupDMChannel) && settings.pm
+  return ((channel instanceof DMChannel) || (channel instanceof GroupDMChannel)) && settings.pm
 }

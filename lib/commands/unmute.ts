@@ -24,5 +24,6 @@ exports.settings = {
   name: 'unmute',
   shortDesc: '',
   longDesc: '',
-  usage: ['MANAGE_MESSAGES']
+  usage: '',
+  perms: ['SEND_MESSAGES', 'MANAGE_MESSAGES']
 }

@@ -8,5 +8,6 @@ exports.settings = {
   name: 'kot',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

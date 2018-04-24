@@ -21,5 +21,6 @@ exports.settings = {
   name: 'warn',
   shortDesc: '',
   longDesc: '',
-  usage: ['MANAGE_MESSAGES']
+  usage: '',
+  perms: ['SEND_MESSAGES', 'MANAGE_MESSAGES']
 }

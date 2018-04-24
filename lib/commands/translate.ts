@@ -8,5 +8,6 @@ exports.settings = {
   name: 'translate',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

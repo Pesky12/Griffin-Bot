@@ -21,6 +21,6 @@ exports.settings = {
   name: 'cl',
   shortDesc: '',
   longDesc: '',
-  usage: [''],
-  perms: null
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

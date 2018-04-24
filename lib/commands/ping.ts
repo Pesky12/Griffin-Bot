@@ -12,5 +12,6 @@ exports.settings = {
   name: 'ping',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

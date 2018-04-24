@@ -22,5 +22,6 @@ exports.settings = {
   name: 'rip',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

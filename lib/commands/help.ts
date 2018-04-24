@@ -22,10 +22,6 @@ exports.settings = {
   name: 'help',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
-}
-
-exports.guildCommandSetting = {
-  enable: true,
-  perms: ['']
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

@@ -19,10 +19,10 @@ export async function CommandHandler (client: Client, message: Message): Promise
         }
       })
     } else if (command.settings.pm) {
-     console.log('boops')
+      console.log('boops')
       runCommand(command)
     }
-    }
+  }
 
   function runCommand (command: Command) {
     command.run(message, args, client)

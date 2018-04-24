@@ -13,5 +13,6 @@ exports.settings = {
   name: 'rps',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

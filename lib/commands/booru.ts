@@ -19,7 +19,7 @@ exports.run = async (_message: Message, _args: Array<string>) => {
   .then(booru.commonfy)
   .then((res: any) => {
     console.log(res)
-    _message.channel.send({ embed: booruEmbed(res[0]) }).then(msg => { msg.react('😍') })
+    _message.channel.send({ embed: booruEmbed(res[0]) })
   })
 }
 
@@ -30,5 +30,5 @@ exports.settings = {
   shortDesc: '',
   longDesc: '',
   usage: '',
-  perms: null
+  perms: ['SEND_MESSAGES']
 }

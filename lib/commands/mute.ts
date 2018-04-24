@@ -23,5 +23,6 @@ exports.settings = {
   name: 'mute',
   shortDesc: '',
   longDesc: '',
-  usage: ['MANAGE_MESSAGES']
+  usage: '',
+  perms: ['SEND_MESSAGES', 'MANAGE_MESSAGES']
 }

@@ -18,7 +18,8 @@ exports.settings = {
   name: 'rps',
   shortDesc: '',
   longDesc: '',
-  usage: ['']
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }
 
 function compare (choice1: string, choice2: string) {
