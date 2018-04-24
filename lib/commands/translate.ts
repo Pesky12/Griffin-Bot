@@ -1,17 +1,13 @@
-exports.run = (client, message, args) => {
-
+exports.run = () => {
+  return
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'translate',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

@@ -16,16 +16,12 @@ exports.run = (_message: Message, _args: Array<string>) => {
   }).catch(console.log)
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'crypto',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

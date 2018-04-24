@@ -1,19 +1,13 @@
-import { Message } from 'discord.js'
-
-exports.run = (_message: Message, _args: Array<string>) => {
+exports.run = () => {
   return
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: false,
   pm: false,
   name: '',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

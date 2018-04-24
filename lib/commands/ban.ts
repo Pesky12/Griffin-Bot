@@ -15,16 +15,12 @@ exports.run = async (_message: Message, _args: Array<string>) => {
   _message.channel.send(messageArray)
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'ban',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['SEND_MESSAGES', 'BAN_MEMBERS']
 }

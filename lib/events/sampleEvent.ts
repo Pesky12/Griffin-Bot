@@ -1,11 +1,8 @@
-import { Client } from 'discord.js'
-
-exports.run = (client: Client) => {
-
+exports.run = () => {
+  return
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   name: 'translate'
 }
-

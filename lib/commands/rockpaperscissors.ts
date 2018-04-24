@@ -1,4 +1,5 @@
 import { Message } from 'discord.js'
+
 exports.run = (message: Message, args: Array<string>) => {
   let userChoice = args.join(' ')
 
@@ -11,19 +12,16 @@ exports.run = (message: Message, args: Array<string>) => {
   message.channel.send(`I choose ${computerChoice}!!\n${choice}`)
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'rps',
   shortDesc: '',
   longDesc: '',
-  usage: ''
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }
 
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
-}
 function compare (choice1: string, choice2: string) {
   if (choice1 === choice2) {
     return 'Looks like we tied!'

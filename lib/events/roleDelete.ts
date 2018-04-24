@@ -15,7 +15,7 @@ exports.run = (client: Client) => {
   })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   name: 'translate'
 }

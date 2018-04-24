@@ -1,17 +1,13 @@
-exports.run = async(client, message) => {
-
+exports.run = async () => {
+  return
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: false,
   pm: false,
   name: 'kot',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

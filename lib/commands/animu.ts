@@ -27,16 +27,12 @@ exports.run = async (_message: Message, _args: Array<string>) => {
     })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
-  pm: false,
+  pm: true,
   name: 'anime',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }

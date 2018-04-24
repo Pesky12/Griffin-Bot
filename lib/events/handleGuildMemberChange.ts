@@ -1,8 +1,8 @@
-import { userLeft, userJoin } from '../Utils/randomSelector'
+import { userJoin, userLeft } from '../Utils/randomSelector'
 import { modActionEmbed } from '../Utils/embeds'
-import { GuildMember, Client, User, Guild } from 'discord.js';
+import { Client, Guild, GuildMember, User } from 'discord.js'
 
-exports.handleJoin = (member: GuildMember, client: Client) => {
+exports.handleJoin = (member: GuildMember) => {
   console.log(member)
   if (member.guild.channels.exists('name', 'general')) return member.guild.channels.find('name', 'general').send(userJoin(member))
 }
@@ -26,7 +26,7 @@ exports.run = (client: Client) => {
   client.on('guildMemberAdd', (member: GuildMember) => { exports.handleJoin(member) })
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   name: 'translate'
 }

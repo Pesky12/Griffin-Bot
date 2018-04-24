@@ -1,5 +1,5 @@
 import { unmute } from '../Utils/randomSelector'
-import { Message, GuildChannel } from 'discord.js'
+import { GuildChannel, Message } from 'discord.js'
 
 exports.run = async (message: Message) => {
   if (!(message.channel instanceof GuildChannel)) return
@@ -18,16 +18,12 @@ exports.run = async (message: Message) => {
   return 1
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'unmute',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['SEND_MESSAGES', 'MANAGE_MESSAGES']
 }

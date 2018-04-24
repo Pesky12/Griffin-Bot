@@ -1,16 +1,10 @@
 function randomize (randomGreetings) {
   let randomNumber = Math.floor(Math.random() * randomGreetings.length)
-  let greetings = randomGreetings[randomNumber]
-  return greetings
+  return randomGreetings[randomNumber]
 }
 
 let messages = []
 
-/**
- *
- * @param {*collection} e Command executer
- * @param {*colletion} b  Banned user
- */
 export function ban (e, b) {
   messages = [
     `${b} has been slashed by the hammer!`,
@@ -34,10 +28,6 @@ export function ban (e, b) {
   return randomize(messages)
 }
 
-/**
- *
- * @param {*collection} u Targeted user
- */
 export function warn (u) {
   messages = [
     `${u} has been warned`,
@@ -51,11 +41,6 @@ export function warn (u) {
   return randomize(messages)
 }
 
-/**
- *
- * @param {*collection} u Targeted user
- * @param {*collection} a Name of the action.
- */
 export function botCant (u, a) {
   messages = [
     `${u} has more power then me! I can't ${a} him`,
@@ -94,10 +79,6 @@ export function kick (e, b) {
   return randomize(messages)
 }
 
-/**
- *
- * @param {*collection} b Targeted user
- */
 export function mute (b) {
   messages = [
     `I ductaped ${b}'s mouth`
@@ -105,10 +86,6 @@ export function mute (b) {
   return randomize(messages)
 }
 
-/**
- *
- * @param {*collection} b Targeted user
- */
 export function unmute (b) {
   messages = [
     `I un-ductaped ${b}'s mouth`

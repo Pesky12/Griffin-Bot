@@ -1,4 +1,5 @@
-import { Client, Message } from 'discord.js'
+import { Message } from 'discord.js'
+// noinspection TypeScriptCheckImport
 import randomgen from 'random-natural'
 
 exports.run = async (message: Message, args: Array<string>) => {
@@ -6,16 +7,12 @@ exports.run = async (message: Message, args: Array<string>) => {
   message.channel.send('🎲 Rolling the dice!').then(msg => msg.edit(`🎲 You rolled ${gen}`))
 }
 
-exports.GlobalSettings = {
+exports.settings = {
   enabled: true,
   pm: false,
   name: 'rps',
   shortDesc: '',
   longDesc: '',
-  usage: ''
-}
-
-exports.GuildDefaultSettings = {
-  enabled: true,
-  perms: []
+  usage: '',
+  perms: ['SEND_MESSAGES']
 }
