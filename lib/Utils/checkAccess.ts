@@ -1,7 +1,7 @@
 import { Channel, Client, DMChannel, GroupDMChannel, Guild, GuildMember } from 'discord.js'
 import { MongoClient } from 'mongodb'
 
-import { Command, GlobalCommandSettings, GuildCommandSetting } from './moduleClass'
+import { Command, GlobalCommandSettings, GuildCommandSetting, GuildSettings } from './moduleClass'
 
 const db = MongoClient
 
@@ -31,11 +31,12 @@ function generateGuild (guild: Guild, _client: Client) {
     let data = {
       _id: guild.id,
       prefix: process.env.PREFIX,
-      commands: _client.commands.map((cmd: Command) => {
+      commands: _client.commands.map(cmd => {
+        let command = cmd as Command
         return {
-          name: cmd.settings.name,
+          name: command.settings.name,
           enabled: true,
-          perms: cmd.settings.perms
+          perms: command.settings.perms
         }
       })
     }

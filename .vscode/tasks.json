@@ -7,6 +7,9 @@
         "label": "build",
         "type": "typescript",
         "tsconfig": "tsconfig.json",
+        "options": {
+            "cwd": "${workspaceRoot}/lib"
+        },
         "problemMatcher": [
             "$tsc",
             "$tslint5"

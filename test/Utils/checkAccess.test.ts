@@ -1,9 +1,7 @@
 import { expect } from 'chai'
-import { checkAccess, checkIfPm } from '../../lib/Utils/checkAccess';
-import { Client, GuildMember, GuildChannel } from 'discord.js';
+import { checkAccess } from '../../lib/Utils/checkAccess'
+import { GuildMember, Guild, Client } from 'discord.js';
 import 'mocha'
-
-const client = new Client()
 
 describe('checkAccess', () => {
   it('Should return false if command is disabled', () => {
@@ -12,6 +10,6 @@ describe('checkAccess', () => {
       enabled: false,
       perms: []
     }
-    expect(checkAccess(setting, null)).to.equal(false)
+    expect(checkAccess(setting, new GuildMember(new Guild(new Client(), {}), {}))).to.equal(false)
   })
 })
