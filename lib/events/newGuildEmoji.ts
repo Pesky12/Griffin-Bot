@@ -16,10 +16,6 @@ exports.run = (client: Client) => {
 }
 
 exports.settings = {
-  enabled: true,
-  pm: false,
-  name: 'translate',
-  shortDesc: '',
-  longDesc: '',
-  usage: ''
+  enabled: false,
+  name: 'newGuildEmoji'
 }

@@ -3,6 +3,6 @@ exports.run = () => {
 }
 
 exports.settings = {
-  enabled: true,
+  enabled: false,
   name: 'translate'
 }

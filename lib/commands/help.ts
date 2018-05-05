@@ -1,19 +1,25 @@
 import { GuildCommandSetting } from './../Utils/moduleClass'
 import { helpDescEmbed } from '../Utils/embeds'
+import { getGuildSettings } from '../Utils/checkAccess';
+import { Message, Client } from 'discord.js';
+import { GlobalCommandSettings, Command } from '../Utils/moduleClass';
 
-exports.run = async (message, args, client) => {
-  let longest = Array.from(client.commands.keys()).reduce((long, str) => Math.max(long, str.length), 0)
-  let helpList = []
-  let command = client.commands.get(args[0])
-  if (command) {
-    if (!command.settings.public || command.settings.owneronly) return
-    return message.channel.send({ embed: helpDescEmbed(command) })
+exports.run = async (_message: Message, _args: String[], _client: Client) => {
+  let cmd = _client.commands.get(_args[0])
+  if (cmd) {
+    return _message.channel.send(cmd)
   }
-  let imustpromisecuzjs = client.commands.map(c => {
-    helpList.push(`{ ${process.env.PREFIX}${c.GlobalSettings.name}${' '.repeat(longest - c.GlobalSettings.name.length)} : '${c.GlobalSettings.shortDesc}' }`)
-  })
-  await Promise.all(imustpromisecuzjs)
-  message.channel.send(`Here is the list of commands you can use ❤\nTo see all the commands use ${process.env.PREFIX}help all\n${helpList.join('\n')}`, { code: 'css' })
+  const settings = getGuildSettings(_message.guild, _client)
+  async function filterCommands () {
+    let longest = Array.from(_client.commands.keys()).reduce((long, str) => Math.max(long, str.length), 0)
+    let filteredList: string[] = []
+    await _client.commands.forEach((cmd: Command) => {
+      filteredList.push(`${cmd.settings.name}${' '.repeat(longest - cmd.settings.name.length)} | ${cmd.settings.shortDesc}`)
+    })
+    return filteredList
+  }
+  console.log(filterCommands())
+  _message.channel.send(filterCommands())
 }
 
 exports.settings = {

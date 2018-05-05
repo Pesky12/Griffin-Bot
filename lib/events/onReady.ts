@@ -9,6 +9,6 @@ exports.run = (client: Client) => {
 }
 
 exports.settings = {
-  enabled: true,
-  name: 'translate'
+  enabled: false,
+  name: 'onReady'
 }
