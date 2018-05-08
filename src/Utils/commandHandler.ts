@@ -1,7 +1,7 @@
 import { Client, Message, GuildChannel } from 'discord.js'
 
 import { getGuildSettings, checkIfPm, checkAccess } from './checkAccess'
-import { Command, GuildSettings } from './moduleClass'
+import { GuildSettings, Command } from '../types'
 
 export async function CommandHandler (client: Client, message: Message): Promise<void> {
   let prefix: any = process.env.PREFIX

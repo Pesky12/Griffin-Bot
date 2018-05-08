@@ -1,6 +1,6 @@
 import { Collection, Client } from 'discord.js'
-import { Command } from './moduleClass'
 import * as fs from 'fs'
+import { Command } from '../types'
 
 export function loader (loadFolder: string, requiring: boolean, client: Client) {
   console.log('msg')

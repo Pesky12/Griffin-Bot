@@ -1,8 +1,7 @@
-import { GuildCommandSetting } from './../Utils/moduleClass'
 import { helpDescEmbed } from '../Utils/embeds'
-import { getGuildSettings } from '../Utils/checkAccess';
-import { Message, Client } from 'discord.js';
-import { GlobalCommandSettings, Command } from '../Utils/moduleClass';
+import { getGuildSettings } from '../Utils/checkAccess'
+import { Message, Client } from 'discord.js'
+import { Command } from '../types'
 
 exports.run = async (_message: Message, _args: String[], _client: Client) => {
   let cmd = _client.commands.get(_args[0])

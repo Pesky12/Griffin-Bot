@@ -1,7 +1,6 @@
 import { Channel, Client, DMChannel, GroupDMChannel, Guild, GuildMember } from 'discord.js'
 import { MongoClient } from 'mongodb'
-
-import { Command, GlobalCommandSettings, GuildCommandSetting, GuildSettings } from './moduleClass'
+import { Command, GuildCommandSetting, GlobalCommandSettings } from '../types'
 
 const db = MongoClient
 

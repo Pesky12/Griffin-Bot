@@ -1,9 +1,9 @@
-///<reference path="moduleClass.ts"/>
+import {Collection} from 'discord.js/typings'
 import { Guild, Message, RichEmbed, Collection, DMChannel, Client } from 'discord.js'
 
 import { firestore } from 'firebase-admin'
-import { Command, GuildCommandSetting } from './moduleClass'
 import { Settings } from 'http2'
+import { GuildCommandSetting, Command } from '../types'
 
 type SettingItem = {
   name: string

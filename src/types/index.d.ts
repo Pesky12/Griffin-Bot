@@ -1,6 +1,4 @@
-import { GuildCommandSetting } from './moduleClass'
 import { PermissionResolvable } from 'discord.js'
-
 export type GlobalCommandSettings = {
   enabled: boolean
   pm: boolean
@@ -10,31 +8,26 @@ export type GlobalCommandSettings = {
   usage: string
   perms: Array<PermissionResolvable>
 }
-
 export type Event = {
   run: void
   settings: EventSettings
   eventSettings: Array<any>
 }
-
 export type Command = {
   run: void
   settings: GlobalCommandSettings
   commandSettings: Array<any>
   guildCommandSetting: GuildCommandSetting
 }
-
 export type GuildCommandSetting = {
   name: string
   enabled: boolean
   perms: Array<any>
 }
-
 export type EventSettings = {
   enabled: boolean
   name: string
 }
-
 export type GuildSettings = {
   _id: number
   prefix: string
