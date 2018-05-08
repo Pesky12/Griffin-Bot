@@ -9,7 +9,20 @@ let messages = []
  * "Playing status text."
  */
 export let playingStatus = [
-  'Mlem'
+  'Mlem',
+  'Big SuS',
+  'Big oof',
+  'Get a big ole W',
+  'Vape em dude',
+  'ITSHAPPENING.JPEG',
+  'Dont chicken out',
+  'Blaze it up',
+  'hhhhhhhhhh',
+  'hahahehehoho',
+  '*slurping noises*',
+  
+  
+  
 ]
 
 export function ban (user: String) {
@@ -66,7 +79,7 @@ export function kick (user: string) {
     `You know, we got some powerful legs ${user}.`,
     `Into the time-out corner, ${user}, you've been bad.`,
     `${user}, Falcon KICK!`,
-    `${user}, silence is golden, duct tape is silver, but kicking is action good alternative.`,
+    `${user}, silence is golden, duct tape is silver, but kicking is a good alternative.`,
     `${user}, you have been temporarily locked out of this server, pay in DOGE to gain access again.`,
     `${user} oof ouch your bones!`,
     `R-E-S-P-E-C-T, find out what it means to me, ${user}!`,
