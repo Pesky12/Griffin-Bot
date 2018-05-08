@@ -15,8 +15,8 @@ exports.run = async (_message: Message, _args: Array<string>) => {
   }
 
   _message.channel.startTyping()
-  Jimp.read(achievURL, (err, image: Jimp) => {
-    Jimp.loadFont(Jimp.FONT_SANS_16_WHITE).then((font: Jimp) => {
+  Jimp.read(achievURL, (err, image: any) => {
+    image.loadFont(Jimp.FONT_SANS_16_WHITE).then((font: Jimp) => {
       image.print(font, 59, 32, rip)
       image.write(`../img/achiev${_message.author.id}.png`, () => {
         _message.channel.send({ file: `../img/achiev${_message.author.id}.png` })
