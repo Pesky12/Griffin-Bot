@@ -1,7 +1,6 @@
 import { Client } from 'discord.js'
 
 import { loader } from './Utils/loader'
-import { searchAnime } from './controllers/malAPI'
 
 const client = new Client() as any
 
