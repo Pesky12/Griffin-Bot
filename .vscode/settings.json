@@ -9,5 +9,13 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.insertSpaces": true,
     "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "tslint.autoFixOnSave": true,
+    "tslint.exclude": "**/node_modules/**/*",
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/dist": true,
+        "**/coverge": true
+    },
 }

@@ -1,7 +1,7 @@
 import 'mocha'
-import * as cleverbot from '../../commands/cleverbot'
+import * as cleverbot from '../../src/commands/cleverbot'
 import * as chai from 'chai'
-import * as chaiPromise from 'chai-as-promised'
+import chaiPromise from 'chai-as-promised'
 const expect = chai.expect
 
 before(() => {
@@ -11,6 +11,6 @@ before(() => {
 
 describe('getCL',() => {
   it('should return a string', () => {
-    return cleverbot.getCl('hello').should.eventually.be.a('string')
+    return cleverbot.getCl('hello', '1').should.eventually.be.a('string')
   })
 })
