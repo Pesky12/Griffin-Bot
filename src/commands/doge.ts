@@ -1,19 +1,12 @@
 import { Message } from 'discord.js'
 import { currencyEmbed } from '../Utils/embeds'
-
-const got = require('got')
+import { resolve } from 'dns'
+import got from 'got'
 
 exports.run = (_message: Message, _args: Array<string>) => {
-  _args = _args.join(' ').split(' to ')
-  console.log(_args)
   let crypto = _args[0] || 'DOGE'
   let convertTo = _args[1] || 'USD'
-  got(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${crypto.toUpperCase()}&tsyms=${convertTo.toUpperCase()}`).then((response: any) => {
-    response = JSON.parse(response.body)
-    response = response['DISPLAY'][crypto || convertTo][convertTo || crypto]
-    console.log(response)
-    _message.channel.send({ embed: currencyEmbed(response) })
-  }).catch(console.log)
+  _message.channel.send({ embed: currencyEmbed(getCrypto(crypto, convertTo)) })
 }
 
 exports.settings = {
@@ -24,4 +17,13 @@ exports.settings = {
   longDesc: '',
   usage: '',
   perms: ['SEND_MESSAGES']
+}
+export function getCrypto (crypto: string, convertTo: string) {
+  return new Promise((resolve ,reject) => {
+    got(`https://min-api.cryptocompare.com/data/pricemultifull?fsyms=${crypto.toUpperCase()}&tsyms=${convertTo.toUpperCase()}`).then((response: any) => {
+      response = JSON.parse(response.body)
+      response = response['DISPLAY'][crypto || convertTo][convertTo || crypto]
+      resolve(response)
+    }).catch(reject)
+  })
 }
