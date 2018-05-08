@@ -1,9 +1,9 @@
-import { Command } from './moduleClass'
-import { Settings } from 'http2'
-import * as fs from 'fs'
 import { Collection, Client } from 'discord.js'
+import { Command } from './moduleClass'
+import * as fs from 'fs'
 
 export function loader (loadFolder: string, requiring: boolean, client: Client) {
+  console.log('msg')
   let collection = new Collection()
   fs.readdir(loadFolder, (err, files) => {
     if (err) return console.error(err)
