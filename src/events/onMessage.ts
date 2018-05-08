@@ -8,6 +8,6 @@ exports.run = (client: Client) => {
 }
 
 exports.settings = {
-  enabled: false,
+  enabled: true,
   name: 'onMessage'
 }
