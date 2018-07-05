@@ -1,5 +1,5 @@
 import { helpDescEmbed } from '../Utils/embeds'
-import { getGuildSettings } from '../Utils/checkAccess'
+import { getGuildSetting } from '../Utils/checkAccess'
 import { Message, Client } from 'discord.js'
 import { Command } from '../types'
 
@@ -8,7 +8,7 @@ exports.run = async (_message: Message, _args: String[], _client: Client) => {
   if (cmd) {
     return _message.channel.send(cmd)
   }
-  const settings = getGuildSettings(_message.guild, _client)
+  const settings = getGuildSetting(_message.guild, _client)
   async function filterCommands () {
     let longest = Array.from(_client.commands.keys()).reduce((long, str) => Math.max(long, str.length), 0)
     let filteredList: string[] = []

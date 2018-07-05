@@ -1,6 +1,6 @@
 import { Message, User } from 'discord.js'
 
-import { ban, botCant } from '../Utils/randomSelector'
+import { ban, botCant } from '../Utils/randomText'
 
 exports.run = async (_message: Message, _args: Array<string>) => {
   let usersToBan = _message.mentions.users
@@ -8,8 +8,8 @@ exports.run = async (_message: Message, _args: Array<string>) => {
   let messageArray: Array<string> = []
   if (usersToBan.size < 1) return _message.channel.send('Can you mention them ?')
   usersToBan.map((u: User) => {
-    if (!_message.guild.members.find('id', u.id).bannable) return messageArray.push(botCant(_message.author, 'ban'))
-    messageArray.push(ban(_message.author, u))
+    if (!_message.guild.members.find('id', u.id).bannable) return messageArray.push(botCant(u.toString(), 'ban'))
+    messageArray.push(ban(u.toString()))
     _message.guild.ban(u, reason)
   })
   _message.channel.send(messageArray)

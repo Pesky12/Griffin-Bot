@@ -19,10 +19,7 @@ export let playingStatus = [
   'Blaze it up',
   'hhhhhhhhhh',
   'hahahehehoho',
-  '*slurping noises*',
-  
-  
-  
+  '*slurping noises*'
 ]
 
 export function ban (user: String) {

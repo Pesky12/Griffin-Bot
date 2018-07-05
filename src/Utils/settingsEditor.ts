@@ -1,4 +1,4 @@
-import {Collection} from 'discord.js/typings'
+import {Collection} from 'discord.js'
 import { Guild, Message, RichEmbed, Collection, DMChannel, Client } from 'discord.js'
 
 import { firestore } from 'firebase-admin'

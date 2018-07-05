@@ -1,10 +1,9 @@
 import { Client } from 'discord.js'
-
 import { loader } from './Utils/loader'
+import { gClient } from './types'
 
-const client = new Client() as any
+const client = new Client() as gClient
 
-client.commands = loader(`${__dirname}/commands/`, false, client)
 client.events = loader(`${__dirname}/events/`, true, client)
 
 client.login(process.env.DISCORD_TOKEN)
