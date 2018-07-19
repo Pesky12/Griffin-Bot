@@ -16,4 +16,5 @@ stages:
 build:
   stage: build
   script: make build dependencies
-   - npm run build
+   - npm run build-ts 
+   - npm run tslint
