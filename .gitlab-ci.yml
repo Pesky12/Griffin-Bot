@@ -4,6 +4,10 @@ before_script:
   - apt-get update -qq && apt-get install -y -qq nodejs
   - npm i
 
+cache:
+  paths:
+  - node_modules/
+
 stages:
   - build
   # - test
@@ -12,4 +16,4 @@ stages:
 build:
   stage: build
   script: make build dependencies
-   - npm run-script build
+   - npm run build
