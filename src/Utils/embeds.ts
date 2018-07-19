@@ -1,6 +1,6 @@
-import { RichEmbed } from 'discord.js'
+import { RichEmbed, User } from 'discord.js'
 
-export function modActionEmbed (actionName, executer, target, reason) {
+export function modActionEmbed (actionName: any, executer: User, target: User, reason: string) {
   return new RichEmbed()
     .setAuthor(executer.tag, executer.displayAvatarURL)
     .addField('Action', actionName, true)
@@ -9,7 +9,7 @@ export function modActionEmbed (actionName, executer, target, reason) {
     .setTimestamp(new Date())
 }
 
-export function infoEmbed (title, desc, color) {
+export function infoEmbed (title: string, desc: string, color: string) {
   return new RichEmbed()
     .setTitle(title)
     .setDescription(desc)
@@ -22,14 +22,14 @@ export function booruEmbed (booruImage: any) {
   return booruEmbed
 }
 
-export function smallEmbedThumbnail (title, desc, thumbnail) {
+export function smallEmbedThumbnail (title: string, desc: string, thumbnail: string) {
   return new RichEmbed()
     .setTitle(title)
     .setDescription(desc)
     .setThumbnail(thumbnail)
 }
 
-export function currencyEmbed (response) {
+export function currencyEmbed (response: any) {
   return new RichEmbed()
     .setAuthor(`${response['FROMSYMBOL']} => ${response['TOSYMBOL']}`)
     .addField('Price (USD)', response['PRICE'])
@@ -40,7 +40,7 @@ export function currencyEmbed (response) {
     .setTimestamp(new Date())
 }
 
-export function helpDescEmbed (i) {
+export function helpDescEmbed (i: { help: { name: string; longDescription: any; description: any; usage: any; }; }) {
   let helpIconUrl = 'https://cdn2.iconfinder.com/data/icons/flat-style-svg-icons-part-1/512/confirmation_verification-512.png'
   return new RichEmbed()
     .setAuthor(process.env.PREFIX + i.help.name, helpIconUrl)
@@ -48,7 +48,7 @@ export function helpDescEmbed (i) {
     .addField('Usage', `${process.env.PREFIX}${i.help.usage}`)
 }
 
-export function userInfoEmbed (user) {
+export function userInfoEmbed (user: User) {
   return new RichEmbed()
     .setAuthor(`${user.tag}`, user.avatarURL)
     .setColor('#331dc4')
@@ -60,14 +60,14 @@ export function userInfoEmbed (user) {
     .addField(`Joined Discord`, user.createdAt)
 }
 
-export function profilePicEmbed (user) {
+export function profilePicEmbed (user: User) {
   return new RichEmbed()
     .setAuthor('Link', user.displayAvatarURL, user.displayAvatarURL)
     .setColor('#1bba31')
     .setImage(user.displayAvatarURL)
 }
 
-export function urbanEmbed (res) {
+export function urbanEmbed (res: { word: any; definition: any; example: any; urbanURL: any; thumbsUp: any; thumbsDown: any; }) {
   return new RichEmbed()
     .setAuthor(`Urban of "${res.word}"`)
     .setDescription(res.definition)
@@ -76,7 +76,7 @@ export function urbanEmbed (res) {
     .setFooter(`${res.urbanURL} | ⬆ ${res.thumbsUp} | ⬇ ${res.thumbsDown}`)
 }
 
-export function animeEmbed (result) {
+export function animeEmbed (result: any) {
   return new RichEmbed()
           .setDescription(result.synopsis)
           .setAuthor(`${result.anime[0].title} | ${result.anime[0].english}`, result.anime[0].image.toString())

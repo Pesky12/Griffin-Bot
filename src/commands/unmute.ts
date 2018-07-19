@@ -1,4 +1,3 @@
-import { unmute } from '../Utils/randomSelector'
 import { GuildChannel, Message } from 'discord.js'
 
 exports.run = async (message: Message) => {
@@ -12,7 +11,7 @@ exports.run = async (message: Message) => {
       SEND_MESSAGES: true,
       ADD_REACTIONS: true
     })
-    messageArray.push(unmute(userToMute))
+    messageArray.push(`${userToMute}`)
   })
   message.channel.send(messageArray)
   return 1

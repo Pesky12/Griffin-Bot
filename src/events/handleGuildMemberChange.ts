@@ -1,14 +1,19 @@
-import { userJoin, userLeft } from '../Utils/randomSelector'
 import { modActionEmbed } from '../Utils/embeds'
 import { Client, Guild, GuildMember, User } from 'discord.js'
 
 exports.handleJoin = (member: GuildMember) => {
   console.log(member)
-  if (member.guild.channels.exists('name', 'general')) return member.guild.channels.find('name', 'general').send(userJoin(member))
+  if (member.guild.channels.exists('name', 'general')) {
+    let channel: any = member.guild.channels.find('name', 'general')
+    channel.send(member.user.username)
+  }
 }
 
 exports.handleLeft = (member: GuildMember) => {
-  if (member.guild.channels.exists('name', 'general')) return member.guild.channels.find('name', 'general').send(userLeft(member))
+  if (member.guild.channels.exists('name', 'general')) {
+    let channel: any = member.guild.channels.find('name', 'general')
+    channel.send(member.user.username)
+  }
 }
 
 exports.handleBanKick = async (guild: Guild, user: User, action: any) => {
@@ -16,7 +21,8 @@ exports.handleBanKick = async (guild: Guild, user: User, action: any) => {
   if (!guild.channels.exists('name', 'mod-log')) return
   let auditLog = await guild.fetchAuditLogs({ limit: 1 })
   let auditLogEntry = auditLog.entries.first()
-  guild.channels.find('name', 'mod-log').send({ embed: modActionEmbed(action, auditLogEntry.executor, user, auditLogEntry.reason || 'There is none! ¯\\_(ツ)_/¯') })
+  let channel: any = guild.channels.find('name', 'mod-log')
+  channel.send({ embed: modActionEmbed(action, auditLogEntry.executor, user, auditLogEntry.reason || 'There is none! ¯\\_(ツ)_/¯') })
 }
 
 exports.run = (client: Client) => {

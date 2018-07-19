@@ -1,15 +1,16 @@
 import { Channel, Client, DMChannel, GroupDMChannel, Guild, GuildMember } from 'discord.js'
 import { MongoClient } from 'mongodb'
 import { Command, GuildCommandSetting, GlobalCommandSettings } from '../types'
+import { gClient } from 'index'
 
 const db = MongoClient
 
-export function getGuildSettings (guild: Guild, _client: Client): Promise<any> {
+export function getGuildSettings (guild: Guild, _client: gClient): Promise<any> {
   return new Promise((resolve, reject) => {
     db.connect(process.env.MONGO_URI || '', (err, client) => {
       if (err) reject(err)
       const collection = client.db('Chloe').collection('Guilds')
-      collection.findOne({ _id: guild.id }).then((data: GuildSettings) => {
+      collection.findOne({ _id: guild.id }).then((data: any) => {
         if (data) {
           console.log('settings')
           resolve(data)
@@ -25,7 +26,7 @@ export function getGuildSettings (guild: Guild, _client: Client): Promise<any> {
   })
 }
 
-function generateGuild (guild: Guild, _client: Client) {
+function generateGuild (guild: Guild, _client: gClient) {
   return new Promise((resolve) => {
     let data = {
       _id: guild.id,

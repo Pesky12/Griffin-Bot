@@ -8,7 +8,8 @@ exports.run = (client: Client) => {
         .setDescription('For more info check the audit log')
         .setColor(newRole.hexColor)
         .setTimestamp(new Date())
-      oldRole.guild.channels.find('name', 'mod-log').send({ embed })
+      let channel: any = oldRole.guild.channels.find('name', 'mod-log')
+      channel.send({ embed })
     }
   })
 }

@@ -1,4 +1,4 @@
-import { Message, TextChannel } from 'discord.js'
+import { Message } from 'discord.js'
 
 exports.run = (_message: Message, _args: Array<string>) => {
   let messageCount: number = parseInt(_args[0], undefined)
@@ -7,7 +7,7 @@ exports.run = (_message: Message, _args: Array<string>) => {
   }
   _message.delete()
   _message.channel.fetchMessages({ limit: messageCount }).then(messages => { _message.channel.bulkDelete(messages) })
-  _message.channel.send(`:ok_hand: Deleted ${messageCount} messages`).then(botmsg => botmsg.delete(5000))
+  _message.channel.send(`:ok_hand: Deleted ${messageCount} messages`).then((botmsg: any) => botmsg.delete(5000))
 }
 
 exports.settings = {

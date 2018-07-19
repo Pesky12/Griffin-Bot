@@ -1,4 +1,4 @@
-import { PermissionResolvable, Client } from 'discord.js'
+import { PermissionResolvable, Client, Collection } from 'discord.js';
 export type GlobalCommandSettings = {
   enabled: boolean
   pm: boolean
@@ -35,5 +35,6 @@ export type GuildSetting = {
 }
 
 export class gClient extends Client {
-  events: any
+  events: Collection<String, Event>
+  commands: Collection<String, Command>
 } 

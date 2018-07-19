@@ -8,7 +8,7 @@
     "editor.cursorStyle": "line-thin",
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.insertSpaces": true,
-    "window.title": "${dirty}${activeEditorMedium}${separator}${rootName}",
+    "window.title": "${rootName}",
     "files.insertFinalNewline": true,
     "tslint.autoFixOnSave": true,
     "tslint.exclude": "**/node_modules/**/*",

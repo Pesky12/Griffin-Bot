@@ -1,10 +1,10 @@
 import { Collection, Client } from 'discord.js'
 import * as fs from 'fs'
-import { Command } from '../types'
+import { Command } from 'index'
 
 export function loader (loadFolder: string, requiring: boolean, client: Client) {
   console.log('msg')
-  let collection = new Collection()
+  let collection: Collection<String, any> = new Collection()
   fs.readdir(loadFolder, (err, files) => {
     if (err) return console.error(err)
     console.log(`\nI am trying to load ${files.length} files from ${loadFolder}, hold up!`)

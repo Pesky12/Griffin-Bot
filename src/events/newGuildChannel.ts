@@ -1,7 +1,7 @@
 import { RichEmbed, Client } from 'discord.js'
 
 exports.run = (client: Client) => {
-  client.on('channelCreate', (channel) => {
+  client.on('channelCreate', (channel: any) => {
     if (channel.type === 'dm') return
     if (channel.guild.channels.find('name', 'mod-log')) {
       let embed = new RichEmbed()

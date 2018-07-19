@@ -1,5 +1,4 @@
 import { modActionEmbed } from '../Utils/embeds'
-import { warn } from '../Utils/randomSelector'
 import { Message } from 'discord.js'
 
 exports.run = (message: Message, args: Array<string>) => {
@@ -8,9 +7,12 @@ exports.run = (message: Message, args: Array<string>) => {
   let messageArray: Array<string> = []
   warnedUsers.map(u => {
     let warnEmbed = modActionEmbed('Warn', message.author, u, reason)
-    if (message.guild.channels.exists('name', 'mod-log')) message.guild.channels.find('name', 'mod-log').send({ embed: warnEmbed })
+    if (message.guild.channels.exists('name', 'mod-log')) {
+      let channel: any = message.guild.channels.find('name', 'mod-log')
+      channel.send({ embed: warnEmbed })
+    }
     u.send({ embed: warnEmbed })
-    messageArray.push(warn(u))
+    messageArray.push(u.username)
   })
   message.channel.send(messageArray)
 }

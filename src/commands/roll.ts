@@ -1,10 +1,9 @@
 import { Message } from 'discord.js'
-// noinspection TypeScriptCheckImport
-import randomgen from 'random-natural'
 
 exports.run = async (message: Message, args: Array<string>) => {
-  let gen = randomgen({ min: args[0] || 0, max: args[1] || 20 })
-  message.channel.send('🎲 Rolling the dice!').then(msg => msg.edit(`🎲 You rolled ${gen}`))
+  let min = parseFloat(args[0])
+  let max = parseFloat(args[1])
+  message.channel.send('🎲 Rolling the dice!').then((msg: any) => msg.edit(`🎲 You rolled ${Math.random() * (max - min) + min}`))
 }
 
 exports.settings = {

@@ -1,31 +1,37 @@
-import { Client, Message, GuildChannel } from 'discord.js'
+import { Message } from 'discord.js'
+import { gClient, Command } from 'index'
+export class CommandHandler {
+  private client: gClient
+  private msg: Message
+  private cmd: Command
+  private args: String[]
 
-import { getGuildSettings, checkIfPm, checkAccess } from './checkAccess'
-import { GuildSettings, Command } from '../types'
-
-export async function CommandHandler (client: Client, message: Message): Promise<void> {
-  let prefix: any = process.env.PREFIX
-  if (!message.content.startsWith(prefix)) return
-  let messageHandler = message.content.split(' ')
-  let args = messageHandler.slice(1)
-  let command = client.commands.get(messageHandler[0].slice(prefix.length)) as Command
-  if (command) {
-    if (message.channel instanceof GuildChannel) {
-      getGuildSettings(message.guild, client).then((data: GuildSettings) => {
-        console.log(data)
-        console.log(data.commands.find(cmd => cmd.name === command.settings.name))
-        if (checkAccess(data.commands.find(cmd => cmd.name === command.settings.name), message.member)) {
-          runCommand(command)
-        }
-      })
-    } else if (command.settings.pm) {
-      console.log('boops')
-      runCommand(command)
-    }
+  constructor (client: gClient, msg: Message) {
+    this.msg = msg
+    this.client = client
   }
 
-  function runCommand (command: Command) {
-    command.run(message, args, client)
-    console.log(`${message.author.tag} used ${command.settings.name}`)
+  findCMD (cmdName: String) {
+    let cmds = this.client.commands
+    return cmds.get(cmdName)
   }
+
+  setArgs (args: String[]) {
+    this.args = args
+    return this.args
+  }
+
+  setCMD (cmd: Command) {
+    this.cmd = cmd
+    return this.cmd
+  }
+
+  checkAccess () {
+    return true
+  }
+
+  execute () {
+    this.cmd.run()
+  }
+
 }

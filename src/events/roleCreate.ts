@@ -9,7 +9,8 @@ exports.run = (client: Client) => {
         .addField('Color', `${role.hexColor}`, true)
         .setColor(role.hexColor)
         .setTimestamp(new Date())
-      role.guild.channels.find('name', 'mod-log').send({ embed })
+      let channel: any = role.guild.channels.find('name', 'mod-log')
+      channel.send({ embed })
     }
   })
 }
