@@ -16,5 +16,4 @@ stages:
 build:
   stage: build
   script:
-   - npm run build-ts 
-   - npm run tslint
+   - npm run build-ts

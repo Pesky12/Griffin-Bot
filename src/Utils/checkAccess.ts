@@ -1,4 +1,4 @@
-import { Channel, Client, DMChannel, GroupDMChannel, Guild, GuildMember } from 'discord.js'
+import { Channel, DMChannel, GroupDMChannel, Guild, GuildMember } from 'discord.js'
 import { MongoClient } from 'mongodb'
 import { Command, GuildCommandSetting, GlobalCommandSettings } from '../types'
 import { gClient } from 'index'
