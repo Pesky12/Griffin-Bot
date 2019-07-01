@@ -8,7 +8,7 @@
         "type": "typescript",
         "tsconfig": "tsconfig.json",
         "options": {
-            "cwd": "${workspaceRoot}/lib"
+            "cwd": "${workspaceRoot}/src"
         },
         "problemMatcher": [
             "$tsc",

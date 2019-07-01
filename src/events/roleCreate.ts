@@ -1,0 +1,21 @@
+import { RichEmbed, Client } from 'discord.js'
+
+exports.run = (client: Client) => {
+  client.on('roleCreate', (role) => {
+    if (role.guild.channels.find('name', 'mod-log')) {
+      let embed = new RichEmbed()
+        .setAuthor(`Role '${role.name}'(${role.id}) has been created!`)
+        .setDescription('For more info check the audit log')
+        .addField('Color', `${role.hexColor}`, true)
+        .setColor(role.hexColor)
+        .setTimestamp(new Date())
+      let channel: any = role.guild.channels.find('name', 'mod-log')
+      channel.send({ embed })
+    }
+  })
+}
+
+exports.settings = {
+  enabled: false,
+  name: 'translate'
+}
